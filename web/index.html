@@ -8,27 +8,311 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
     <script>
         $(document).ready(function() {
             new WOW().init();
+
+            $('.emag-nav li').click(function() {
+                if ($(this).hasClass('active')) {
+                    return false;
+                }
+                $(window).scrollTop(0);
+                var orderNum = $(this).index() + 1;
+                $('.emag-nav li').removeClass('active');
+                $(this).addClass('active');
+                $('.emag-tab').hide();
+                $('.emag-tab[data-content="' + orderNum + '"]').fadeIn(300);
+                new WOW().init();
+            })
+
+            var offsetNav = $('.emag-nav').offset().top;
+            $(window).scroll(function() {
+                if($(this).scrollTop() >= offsetNav) {
+                    $('.emag-nav').addClass('fixed')
+                } else {
+                    $('.emag-nav').removeClass('fixed')
+                }
+            })
         })
     </script>
 </head>
 <body>
     <div class="emag-wrapper">
+        <div class="emag-header"></div>
         <ul class="emag-nav">
-            <li>21 điểm <br /> đổ bộ</li>
-            <li class="active">người đặt <br /> nền móng</li>
+            <li class="active">21 điểm <br /> đổ bộ</li>
+            <li>người đặt <br /> nền móng</li>
             <li>long-hùm <br /> so găng</li>
             <li>thế kỷ <br /> 21</li>
             <li>kho báu <br /> mặt trăng</li>
             <li>huyền thoại <br /> apollo</li>
         </ul>
 
-        <!-- <div class="emag-tab" data-content="2">
+        <div class="emag-tab" data-content="1">
+            <div class="emag-cover">
+                <img src="images/cover-1.jpg" alt="" style="margin-bottom: 10px;">
+                
+                <a data-fancybox data-src="#luna9" href="javascript:;" class="pointer rusia luna9"></a>
+                <a data-fancybox data-src="#luna13" href="javascript:;" class="pointer rusia luna13"></a>
+                <a data-fancybox data-src="#luna17" href="javascript:;" class="pointer rusia luna17"></a>
+                <a data-fancybox data-src="#luna21" href="javascript:;" class="pointer rusia luna21"></a>
+                <a data-fancybox data-src="#luna23" href="javascript:;" class="pointer rusia luna23"></a>
+                <a data-fancybox data-src="#luna20" href="javascript:;" class="pointer rusia luna20"></a>
+                <a data-fancybox data-src="#luna16" href="javascript:;" class="pointer rusia luna16"></a>
+                
+                <a data-fancybox data-src="#chang3" href="javascript:;" class="pointer china chang3"></a>
+                <a data-fancybox data-src="#chang4" href="javascript:;" class="pointer china chang4"></a>
+
+                
+                <a data-fancybox data-src="#apollo12" href="javascript:;" class="pointer apollo apollo12"></a>
+                <a data-fancybox data-src="#apollo14" href="javascript:;" class="pointer apollo apollo14"></a>
+                <a data-fancybox data-src="#apollo15" href="javascript:;" class="pointer apollo apollo15"></a>
+                <a data-fancybox data-src="#apollo17" href="javascript:;" class="pointer apollo apollo17"></a>
+                <a data-fancybox data-src="#apollo11" href="javascript:;" class="pointer apollo apollo11"></a>
+                <a data-fancybox data-src="#apollo16" href="javascript:;" class="pointer apollo apollo16"></a>
+
+                <a data-fancybox data-src="#surveyor7" href="javascript:;" class="pointer surveyor surveyor7"></a>
+                <a data-fancybox data-src="#surveyor1" href="javascript:;" class="pointer surveyor surveyor1"></a>
+                <a data-fancybox data-src="#surveyor3" href="javascript:;" class="pointer surveyor surveyor3"></a>
+                <a data-fancybox data-src="#surveyor6" href="javascript:;" class="pointer surveyor surveyor6"></a>
+                <a data-fancybox data-src="#surveyor5" href="javascript:;" class="pointer surveyor surveyor5"></a>
+            </div>
+            
+            <p class="emag-caption" style="padding: 0 30px; margin-bottom: 10px;">"Độc giả bấm vào các điểm trên Mặt Trăng để xem thông tin"</p>
+
+            <div class="emag-popup" id="luna9">
+                <p class="emag-popup-title">LUNA 9:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Sau các sứ mệnh thất bại từ cuối thập niên 1950, đầu thập niên 1960, cuối cùng, vào ngày 3/2/1966, phi thuyền Luna 9 thuộc chương trình thám hiểm Mặt Trăng (Luna Program) của Liên Xô cũng hạ cánh thành công lên bề mặt Mặt Trăng. Luna 9, nặng 99 kg, trở thành phi thuyền đầu tiên trong lịch sử hạ cánh xuống một thiên thể khác ngoài Trái Đất, và truyền những hình ảnh đầu tiên bên ngoài không gian về địa cầu.</p>
+
+                    <p>Địa điểm hạ cánh của Luna 9 là Oceanus Procellarum (Ocean of Storms), một đồng bằng bazan lớn, bằng phẳng, ở rìa phía Tây nửa sáng Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="luna13">
+                <p class="emag-popup-title">LUNA 13:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Là phi thuyền không người lái thứ 2 của Liên Xô đổ bộ Mặt Trăng thành công vào ngày 24/12/1966; và là phi thuyền thứ 3 đổ bộ vệ tinh tự nhiên Trái Đất (sau Luna 9; và Surveyor 1 của Mỹ). Ngày trở về, Luna 13 cung cấp tổng cộng 5 hình ảnh toàn cảnh Mặt Trăng, cho thấy địa hình bằng phẳng hơn nhiều so với các bức ảnh của Luna 9.</p>
+
+                    <p>Địa điểm hạ cánh của Luna 13 cũng là Oceanus Procellarum (Ocean of Storms).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="luna17">
+                <p class="emag-popup-title">LUNA 17:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Đổ bộ Mặt Trăng ngày 17/11/1970, phi thuyền không người lái Luna 17 của Liên Xô lần đầu tiên mang theo xe tự hành trên Mặt Trăng có tên Lunokhod 1. Sau 322 ngày rong ruổi trên Mặt Trăng, Lunokhod 1 truyền về Trái Đất hình ảnh bề mặt vệ tinh cũng như những phân tích ban đầu về các mẫu đất thu thập được tại đây.</p>
+
+                    <p>Địa điểm đổ bộ của Luna 17 là Mare Imbrium (Sea of Rains hay Sea of Showers), là một vùng đồng bằng dung nham rộng lớn trong Lưu vực Imbrium trên Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="luna21">
+                <p class="emag-popup-title">LUNA 21:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Chưa đầy 1 tháng sau lần hạ cánh cuối cùng của phi thuyền thuộc Chương trình Apollo (NASA), Liên Xô đổ bộ tàu vũ trụ không người lái Luna 21 vào ngày 15/1/1973, mang theo xe tự hành Mặt Trăng thứ hai Lunokhod 2. Luna 21 hoàn thành sứ mệnh khi thu thập được nhiều hình ảnh Mặt Trăng, quan sát tia X Mặt Trời, đo từ trường và nghiên cứu tính chất cơ học của bề mặt Mặt Trăng.</p>
+
+                    <p>Địa điểm hạ cánh của Luna 21 là Le Monnier, tàn dư của một miệng hố va chạm Mặt Trăng. Nó được đặt theo tên nhà thiên văn học người Pháp Pierre Charles Le Monnier (1715-1799).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="luna23">
+                <p class="emag-popup-title">LUNA 23, 24:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Tháng 10/1974, Luna 23 mang trong mình sứ mệnh thu thập mẫu đất Mặt Trăng mang về Trái Đất phân tích, tuy nhiên, trong quá trình đổ bộ tại Mare Crisium (Sea of ​​Crises), tàu bị hư hỏng nặng. Hiện xác tàu Luna 23 vẫn còn nằm trên Mặt Trăng.</p>
+
+                    <p>Ngày 18/8/1976, Luna 24 tiếp tục lên đường thực hiện nhiệm vụ thu thập mẫu đất Mặt Trăng. Sau khi đổ bộ tại địa điểm cách Luna 23 vài trăm mét, Luna 24 lấy được 170 gram mẫu đất Mặt Trăng ở độ sâu 2 mét và quay về Trái Đất thành công.</p>
+
+                    <p>Luna 24 là sứ mệnh Mặt Trăng cuối cùng của Liên Xô. Cũng là phi thuyền cuối cùng khép lại cuộc đua lên vệ tinh tự nhiên Trái Đất với Mỹ thời Chiến tranh Lạnh.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="luna20">
+                <p class="emag-popup-title">LUNA 20:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Sau thất bại của sứ mệnh Luna 18 (lao xuống bề mặt Mặt Trăng ngày 11/9/1971), vào ngày 21/2/1972, Luna 20 hạ cánh thành công trên Mặt Trăng. Không giống như 101 gram mẫu đất mà Luna 16 mang về (chủ yếu là bazan), 55 gram mẫu đất Mặt Trăng mà Luna 20 mang về chủ yếu là đá Anorthosit cổ có hàm lượng sắt cao.</p>
+
+                    <p>Địa điểm hạ cánh của Luna 20 là vùng cao nguyên Terra Apollonius, gần Mare Fecunditatis (Sea of Fecundity hay Sea of Fertility, Biển Sinh), cách điểm hạ cánh của Luna 16 khoảng 120km.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="luna16">
+                <p class="emag-popup-title">LUNA 16:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 20/9/1970, tàu vũ trụ không người lái Luna 16 của Liên Xô đổ bộ thành công Mặt Trăng. Với việc thu thập được 101 gram mẫu đất Mặt Trăng tại Mare Fecunditatis mang về Trái Đất, Luna 16 trở thành sứ mệnh lấy đất Mặt Trăng thành công thứ 3 trên thế giới, sau Apollo 11 và Apollo 12 của NASA.</p>
+
+                    <p>Địa điểm hạ cánh của Luna 16 là Mare Fecunditatis (Sea of Fecundity hay Sea of Fertility, Biển Sinh).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="chang3">
+                <p class="emag-popup-title">Chang'e 3:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Sau sứ mệnh đưa tàu không người lái đổ bộ Mặt Trăng cuối cùng Luna 24 của Liên Xô trong tế kỷ 20, 37 năm liên tục loài người không triển khai bất cứ nhiệm vụ thăm dò Mặt Trăng nào nữa.</p>
+
+                    <p>Bước sang thế kỷ 21, Trung Quốc 'hồi sinh' cuộc đua đổ bộ Mặt Trăng bằng sứ mệnh đưa tàu vũ trụ không người lái Chang'e-3 (Hằng Nga 3) đổ bộ vệ tinh tự nhiên Trái Đất ngày 14/12/2013. Mang theo tàu thăm dò tự hành Yutu-1 (Thỏ Ngọc 1), Chang'e-3 hoàn thành xuất sắc nhiệm vụ khi phát hiện được khoáng vật Mặt Trăng mới là Ilmenit vào tháng 12/2015.</p>
+
+                    <p>Địa điểm hạ cánh của Chang'e-3 là Mare Imbrium, (Sea of Rains hay Sea of Showers), là một vùng đồng bằng dung nham rộng lớn trong Lưu vực Imbrium trên Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="chang4">
+                <p class="emag-popup-title">Chang'e 4:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 3/1/2019 là ngày Trung Quốc trở thành quốc gia đầu tiên trong lịch sử đưa tàu vũ trụ không người lái Chang'e-4 (Hằng Nga 4) đổ bộ thành công nửa tối Mặt Trăng.</p>
+
+                    <p>Mang theo robot tự hành Yutu-2 (Thỏ Ngọc 2) và kết nối với vệ tinh chuyển tiếp liên lạc Queqiao, hiện nay sứ mệnh khám phá nửa tối bí mật của Mặt Trăng vẫn được tiến hành.</p>
+
+                    <p>Địa điểm hạ cánh Chang’e-4 là miệng núi lửa va chạm Mặt Trăng Von Kármán, đường kính 186 km, thuộc lưu vực Aitken Nam Cực ở nửa tối Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="apollo12">
+                <p class="emag-popup-title">Apollo 12:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Bốn tháng sau sứ mệnh đi vào lịch sử của Apollo 11, phi hành đoàn Apollo 12 gồm chỉ huy <strong>Pete Conrad</strong>, phi công mô-đun Mặt Trăng là <strong>Alan Bean</strong>, phi công mô-đun chỉ huy Richard F. Gordon Jr.  tiếp tục lên đường, rồi đổ bộ thành công Mặt Trăng ngày 19/11/1969, với nhiệm vụ khám phá khu vực hạ cánh, chuẩn bị cho các nhiệm vụ đổ bộ trong tương lai.</p>
+
+                    <p>Tổng thời gian chỉ huy Pete Conrad và phi công Alan Bean trên Mặt Trăng thực hiện EVA (Extravehicular Activity – hoạt động ngoài không gian) là 7 giờ, 45 phút.</p>
+
+                    <p>Địa điểm hạ cánh của Apollo 12 gần khu vực Surveyor 3 đã đổ bộ trước đó, là lưu vực Mare Cognitum, thuộc Oceanus Procellarum (Ocean of Storms).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="apollo14">
+                <p class="emag-popup-title">Apollo 14:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Một năm sau sứ mệnh Apollo 12 và sau tai nạn của Apollo 13, NASA tiếp tục triển khai sứ mệnh Apollo 14 đổ bộ thành công Mặt Trăng ngày 5/2/1971. Chỉ huy <strong>Alan Shepard</strong> và phi công mô-đun Mặt Trăng <strong>Edgar Mitchell</strong> dành 9,5 giờ đồng hồ thực hiện EVA và thu được 42,8 kg đất Mặt Trăng, trong khi phi công Stuart Roosa lái mô-đun chỉ huy ở vùng quỹ đạo Mặt Trăng.</p>
+
+                    <p>Trong sứ mệnh này, chỉ huy Alan Shepard đánh 2 quả bóng golf trên bề mặt Mặt Trăng, các quả bóng golf bay khoảng vài trăm mét trong môi trường không trọng lực.</p>
+
+                    <p>Địa điểm đổ bộ của Apollo 14 là cao nguyên Fra Mauro, nằm giữa vùng đông bắc Mare Cognitum và đông nam Mare Insularum. Fra Mauro là khu vực Apollo 13 dự định hạ cánh trước đó.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="apollo15">
+                <p class="emag-popup-title">Apollo 15:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Đổ bộ ngày 30/7/1971, Apollo 15 là phi thuyền đầu tiên thực hiện chuỗi 'Sứ mệnh J' (J Missions) của NASA nhằm cho phi hành đoàn lưu lại Mặt Trăng lâu hơn, tập trung vào thực nghiệm khoa học nhiều hơn so với 3 cuộc đổ bộ có người lái trước đó.</p>
+
+                    <p>Phi hành đoàn Apollo 15 gồm: Chỉ huy <strong>David Scott</strong>, phi công mô-đun Mặt Trăng <strong>James Irwin</strong> và phi công mô-đun chỉ huy <strong>Alfred M. Worden</strong>.</p>
+
+                    <p>Apollo 15 cũng là nhiệm vụ đầu tiên mang theo chiếc xe vận hành trên Mặt Trăng (LRV), di chuyển cách mô-đun Mặt Trăng 27,4km để làm nhiệm vụ thu thập 77kg vật liệu. Vào thời điểm năm 1971, NASA gọi Apollo 15 là chuyến bay vũ trụ có người lái thành công nhất từng đạt được.</p>
+
+                    <p>Địa điểm đổ bộ của Apollo 15 là đồng bằng dung nham Hadley–Apennine, ở rìa phía đông của Mare Imbrium, một trong những miệng núi lửa lớn của Thái Dương Hệ.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="apollo17">
+                <p class="emag-popup-title">Apollo 17:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Đây là sứ mệnh đổ bộ Mặt Trăng của tàu vũ trụ có người lái cuối cùng của NASA trong thế kỷ 20.</p>
+
+                    <p>Ngày 11/12/1972, phi hành đoàn gồm chỉ huy <strong>Eugene Cernan</strong>, phi công mô-đun chỉ huy Ronald Evans, và phi công mô-đun Mặt Trăng <strong>Harrison Schmitt</strong> đổ bộ thành công Mặt Trăng và thực hiện Sứ mệnh J (J Missions) lâu nhất trong lịch sử Apollo: 75 giờ; đồng thời cũng cho chiếc xe vận hành trên Mặt Trăng (LRV) ở xa mô-đun Mặt Trăng nhất, cách 36km.</p>
+
+                    <p>Địa điểm hạ cánh của Apollo 17 là thung lũng Taurus–Littrow, nằm ở phía đông nam Mare Serenitatis (Sea of Serenity).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="apollo11">
+                <p class="emag-popup-title">Apollo 11:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 20/7/1969 là ngày lịch sử ghi nhận chiến công vũ trụ hiển hách nhất mọi thời đại mà NASA và người Mỹ lập được: Lần đầu tiên đưa người đổ bộ thành công Mặt Trăng.</p>
+
+                    <p>Sau những bước đệm dài hơi từ chương trình Surveyor (1966-1968) và các sứ mệnh tiền đề của Apollo, cuối cùng phi hành đoàn Apollo 11 gồm chỉ huy <strong>Neil Armstrong</strong>, phi công mô-đun Mặt Trăng Buzz Aldrin và phi công mô-đun chỉ huy <strong>Michael Collins</strong> cũng làm nên lịch sử trên Mặt Trăng.</p>
+
+                    <p>"Đây là bước chân nhỏ bé của con người nhưng là bước tiến vĩ đại của nhân loại" là cảm nghĩ của chỉ huy Neil Armstrong ngay sau khi anh đặt những bước chân đầu tiên của con người trên Mặt Trăng năm 1969.</p>
+
+                    <p>Địa điểm đổ bộ của Apollo 11 là vùng đồng bằng bazan Mare Tranquillitatis (Sea of Tranquillity, Biển Tĩnh lặng).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="apollo16">
+                <p class="emag-popup-title">Apollo 16:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Cuộc đổ bộ thành công của phi thuyền có người lái thứ 5 của NASA lên Mặt Trăng diễn ra vào ngày 20/4/1972. Apollo 16 là chương trình thứ hai thực hiện 'Sứ mệnh J' và là chương trình đầu tiên hạ cánh trên vùng cao nguyên Mặt Trăng.</p>
+
+                    <p>Phi hành đoàn Apollo 16 gồm: Chỉ huy <strong>John Young</strong>, phi công mô-đun Mặt Trăng <strong>Charles Duke</strong>, phi công mô-đun chỉ huy Ken Mattingly.</p>
+
+                    <p>71 giờ sau khi hạ cánh lên bề mặt Mặt Trăng, Chỉ huy John Young, phi công Charles Duke cùng chiếc xe vận hành trên Mặt Trăng (LRV) thu thập được tổng 95,8 kg vật liệu Mặt Trăng, mang về Trái Đất nghiên cứu.</p>
+
+                    <p>Địa điểm đổ bộ của Apollo 16 là cao nguyên Descartes, gần hố va chạm Mặt Trăng Descartes, thuộc nửa sáng Mặt Trăng. Tên cao nguyên này được đặt theo tên triết gia người Pháp René Descartes (1596–1650).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="surveyor7">
+                <p class="emag-popup-title">Surveyor 7:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 10/2/1968, Surveyor 7 đổ bộ Mặt Trăng. Đây là tàu vũ trụ hạ cánh trên Mặt Trăng thứ 7 và là sứ mệnh cuối cùng của Chương trình Surveyor không người lái của Mỹ được gửi đi để khám phá bề mặt của Mặt Trăng.</p>
+
+                    <p>Địa điểm hạ cánh của Surveyor 7 là khu vực vành ngoài của miệng hố va chạm Mặt Trăng Tycho, thuộc cao nguyên phía nam Mặt Trăng. Tycho được đặt theo tên của nhà thiên văn học người Đan Mạch Tycho Brahe (1546–1601).</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="surveyor1">
+                <p class="emag-popup-title">Surveyor 1:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Bốn tháng sau ngày phi thuyền không người lái Luna 9 (Liên Xô) đổ bộ Mặt Trăng, ngày 2/6/1966, NASA khởi động Chương trình Surveyor không người lái bằng sự kiện cho tàu vũ trụ Surveyor 1 hạ cánh xuống Mặt Trăng.</p>
+
+                    <p>Surveyor 1 tiến hành thu thập dữ liệu bề mặt vệ tinh tự nhiên Trái Đất, tạo tiền đề cho các sứ mệnh có người lái trong chương trình Apollo Program của NASA về sau.</p>
+
+                    <p>Địa điểm hạ cánh của Surveyor 1 là Oceanus Procellarum (Ocean of Storms), một đồng bằng bazan lớn, bằng phẳng, ở rìa phía Tây nửa sáng Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="surveyor3">
+                <p class="emag-popup-title">Surveyor 3:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 20/4/1967, NASA tiếp tục cho tàu Surveyor 3 đổ bộ Mặt Trăng sau thành công của Surveyor 1 năm 1966. Sứ mệnh của Surveyor 3 là khảo sát và truyền tải hình ảnh mẫu đất đá Mặt Trăng ở độ sâu 18 cm về Trái Đất. Tổng cộng, Surveyor 3 truyền 6.315 hình ảnh chụp được đến Trái Đất.</p>
+
+                    <p>Địa điểm Surveyor 3 hạ cánh là lưu vực Mare Cognitum, thuộc Oceanus Procellarum (Ocean of Storms), một đồng bằng bazan lớn, bằng phẳng, ở rìa phía Tây nửa sáng Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="surveyor6">
+                <p class="emag-popup-title">Surveyor 6:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 10/11/1967, Surveyor 6 đổ bộ thành công xuống lưu vực Sinus Medii, trung tâm bán cầu có thể nhìn thấy của Mặt Trăng.</p>
+
+                    <p>Với việc truyền 30.027 hình ảnh về Trái Đất, xác định sự phong phú của các nguyên tố hóa học của đất đá Mặt Trăng, thu thập dữ liệu động lực chạm, thu thập dữ liệu phản xạ nhiệt và radar, Surveyor 6 hoàn thành tất cả các nhiệm vụ được lập trình, tạo tiền đề cho cuộc đổ bộ Mặt Trăng có người lái năm 1969.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="surveyor5">
+                <p class="emag-popup-title">Surveyor 5:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Ngày 11/9/1967, NASA tiếp tục cho tàu vũ trụ không người lái Surveyor 5 đổ bộ Mặt Trăng, nhằm thực hiện các nhiệm vụ khảo sát thành phần hóa học của đất Mặt Trăng. Tổng cộng, Surveyor 5 đã truyền 19.049 hình ảnh Mặt Trăng về Trái Đất.</p>
+
+                    <p>Địa điểm hạ cánh của Surveyor 5 là Mare Tranquillitatis (Sea of Tranquillity, hay Sea of Tranquility), một vùng đồng bằng bazan rộng lớn trên Mặt Trăng.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-tab" data-content="2">
             <div class="emag-cover">
                 <img src="images/cover-2.jpg" alt="">
                 <img src="images/cover-2-1.png" alt="" class="cover-absolute wow fadeIn" data-wow-duration="1s">
@@ -107,11 +391,801 @@
                     <img src="images/credit-2.png" alt="">
                 </div>
             </div>
-        </div> -->
+        </div>
+
+        <div class="emag-tab" data-content="3">
+            <div class="emag-cover">
+                <img src="images/cover-3.jpg" alt="">
+            </div>
+
+            <div class="emag-content">
+                <div class="emag-title w980">
+                    <img src="images/title-3-1.png" alt="">
+                </div>
+
+                <div class="emag-sapo w660">
+                    <img src="images/sapo-3.png" alt="" class="wow fadeInUp" data-wow-duration="1s">
+                </div>
+
+                <div class="w660">
+                    <p>Lời hiệu triệu của Tổng thống John F. Kennedy trong Hội nghị liên tịch Quốc hội Mỹ ngày 25/5/1961 khiến toàn bộ khán phòng ngạc nhiên tột độ.</p>
+
+                    <p>Trước khi yêu cầu Quốc hội tăng ngân sách cho ngành vũ trụ từ 7 lên 9 tỷ USD, niềm tin của vị tổng thống thứ 35 của Mỹ đã đặt cơ quan vũ trụ NASA non trẻ (thành lập năm 1958) vào sứ mệnh khó khăn nhất, đầy thách thức nhất trong lịch sử của mình.</p>
+
+                    <p>Đứng trước sức ép khổng lồ từ thành công không thể phủ nhận của Liên Xô, cộng với áp lực phải hoàn thành sứ mệnh chỉ trong vòng 10 năm ngắn ngủi, NASA đã phải lao động ngày đêm, sáng tạo ngày đêm, không ngừng tìm kiếm tài năng trong và ngoài nước ngày đêm để hoàn thành cho kỳ được ước nguyện của Tổng thống J.F. Kennedy.</p>
+
+                    <p>Trở lại thập niên 1930...</p>
+
+                    <p>Nỗi niềm khoa học đau đáu của nhà lý thuyết tên lửa người Đức Hermann J. Oberth được người trợ lý trẻ tên là Wernher von Braun lĩnh hội trọn vẹn. Bởi, 4 thập kỷ sau khi những viên gạch nền móng đầu tiên về tên lửa của bộ ba Konstantin E. Tsiolkovsky - Hermann J. Oberth - Robert H. Goddard được dựng lên, ngành công nghệ tên lửa vũ trụ thế giới chuyển mình vĩ đại hơn bao giờ hết.</p>
+
+                    <p>Dưới bàn tay và khối óc kỳ tài của kiến trúc sư trưởng người Đức - người về sau được mệnh danh là 'Cha đẻ chương trình vũ trụ Mỹ' - Wernher von Braun (1912-1977) đã đưa sứ mệnh khai phá vũ trụ của loài người bùng nổ thực sự sau sự kiện chế tạo thế hệ tên lửa đẩy tối tân nhất thế kỷ 20 - Saturn V - nâng cánh đưa phi hành đoàn Apollo 11 đổ bộ Mặt Trăng năm 1969 thành công ngoài sức tưởng tượng của con người.</p>
+
+                    <p>Khoan nói về ngày 20/7/1969 đi vào lịch sử không thể quên ấy...</p>
+
+                    <p>Bởi, xét dưới góc độ khoa học, để có được chiến tích vũ trụ hiển hách nhất mọi thời đại ấy, nhân loại cần phải cảm ơn cuộc Chiến tranh Lạnh kéo dài 4 thập kỷ giữa hai siêu cường Mỹ - Liên Xô, một cuộc chiến nhen nhóm ngay từ những ngày Thế chiến II (1939-1945) còn chưa chấm dứt.</p>
+
+                    <p>Vì sao? Chiến tranh Lạnh chính là cuộc so găng leo thang và không khoan nhượng của Mỹ-Xô nhằm thể hiện vị thế và tự tôn dân tộc của cặp Long-Hùm với nhau. Và cuộc chạy đua ra ngoài không gian thời kỳ này - xét dưới góc độ tiến bộ khoa học - đã mang tới cho nhân loại những thành tựu vũ trụ (lần lượt) đáng kinh ngạc.</p>
+                </div>
+
+                <div style="position: relative; margin-left: -30px; margin-right: -30px;">
+                    <img src="images/img-3-1-1.jpg" alt="">
+                    <img src="images/img-3-1-2.png" alt="" class="cover-absolute wow fadeIn" data-wow-duration="1s">
+                    <img src="images/img-3-1-3.png" alt="" class="cover-absolute wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                    <img src="images/img-3-1-4.png" alt="" class="cover-absolute wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1.2s">
+                    <img src="images/img-3-1-5.png" alt="" class="cover-absolute wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1.5s">
+                </div>
+
+                <div class="w660">
+                    <p>Nếu như người Liên Xô có công mở ra kỷ nguyên chinh phục vũ trụ bằng hai sự kiện: Phóng vệ tinh nhân tạo đầu tiên trên thế giới Sputnik 1 năm 1957, và đưa người (phi hành gia Yuri Gagarin) lần đầu tiên thoát khỏi lực hút Trái Đất bay ra ngoài không gian năm 1961, thì người Mỹ làm chao đảo lịch sử bằng sự kiện đưa người lần đầu tiên đổ bộ Mặt Trăng thành công năm 1969.</p>
+
+                    <p>Trong lời tựa cuốn sách “The Rocket into Planetary Space” (1923), 'cha đẻ ngành tên lửa vũ trụ' Hermann J. Oberth nhấn mạnh: Trong điều kiện kinh tế nhất định, việc chế tạo nhưng cỗ máy hiện đại phục vụ cho ngành vũ trụ sẽ mang lại lợi nhuận khổng lồ. Tuy điều kiện hiện tại chưa cho phép nhưng chỉ vài thập kỷ nữa thôi, kỹ nghệ vũ trụ sẽ bùng nổ.</p>
+
+                    <p>Liên Xô và Mỹ đã chứng minh tiên liệu của Hermann J. Oberth là hoàn toàn chính xác. Hãy xem 2 cường quốc này làm chủ công nghệ như thế nào để dệt nên những phát kiến vũ trụ vĩ đại cho nhân loại xuyên suốt nửa cuối thế kỷ 20.</p>
+                </div>
+
+                <div class="emag-title w980" style="margin-top: 60px;">
+                    <img src="images/title-3-2.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Vệ tinh nhân tạo đầu tiên trên thế giới Sputnik 1, được phóng ngày 4/10/1957, có kích thước bằng một quả bóng bãi biển (đường kính 58 cm), chỉ nặng 83,6 kg và mất khoảng 98 phút để thực hiện một vòng quay quanh Trái Đất theo hình elip, chính thức đưa Liên Xô trở thành quốc gia đầu tiên 'khai hỏa' Cuộc chạy đua Không gian (Space Race) trong lịch sử.</p>
+
+                    <p>Là vật thể đầu tiên trên thế giới thoát được lực hút Trái Đất để bay ra ngoài không gian, Sputnik 1 hiện thân cho thành tựu kỹ thuật đột phá chưa từng có trong lịch sử, thu hút mọi sự chú ý của thế giới, khiến Mỹ bừng tỉnh, (lúc bấy giờ đang mải miết sản xuất vũ khí hạt nhân) buộc phải bước vào cuộc đua công nghệ không gian với 'kỳ phùng địch thủ' Liên Xô.</p>
+
+                    <p>Sputnik 1 còn là nguyên nhân trực tiếp dẫn đến việc Tổng thống Dwight D. Eisenhower (1890-1969) quyết định thành lập Cơ quan Hàng không và Vũ trụ Quốc gia Mỹ (NASA) ngày 29/7/1958.</p>
+
+                    <p>Cũng trong năm 1957, Liên Xô khiến Mỹ sốt sắng thực sự sau khi nước này tiếp tục phóng thành công Sputnik 2 lên quỹ đạo ngày 3/11/1957. Sputnik 2 nặng hơn nửa tấn, gấp Sputnik 1 sáu lần và mang trong mình sứ mệnh đột phá: Chở động vật theo, chính là chú chó phi hành gia Laika.</p>
+
+                    <p>Cả hai (Sputnik 2 và Laika) hoàn thành nhiệm vụ bay vòng quanh Trái Đất trong 103 phút, tạo tiền đề cho sứ mệnh có 1-0-2 của Liên Xô năm 1961 về sau.</p>
+                </div>
+
+                <div class="emag-title w980" style="margin-top: 60px;">
+                    <img src="images/title-3-3.png" alt="">
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-3-1.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Explorer 1, do Hải quân Mỹ sáng chế, nặng 14kg, là phiên bản cải tiến của vệ tinh Vanguard mà Nhà Trắng công bố sẽ phát triển năm 1955. Tuy nhiên, Vanguard nhanh chóng 'chết yểu' khi bị vệ tinh nhân tạo Sputnik 1 của Liên Xô vượt mặt năm 1957.</p>
+
+                    <p>Explorer 1 là thành quả có được từ ba bộ óc thiên tài của Tiến sĩ William H. Pickering (Giám đốc trung tâm Thí nghiệm Sức đẩy phản lực JPL của NASA); Tiến sĩ James Van Allen thuộc Đại học Iowa (Mỹ); và Tiến sĩ Wernher von Braun, trưởng nhóm phát triển tên lửa một tầng Redstone, đảm nhận nhiệm vụ phóng Explorer 1.</p>
+                </div>
+
+                <div class="w1280">
+                    <img src="images/img-3-1-2.jpg" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Thành tựu đáng nhớ nhất của Explorer 1 chính là việc phát hiện ra Vành đai bức xạ Van Allen (khu vực tập trung mật độ cao các hạt điện tử, proton từ Mặt Trời), do Tiến sĩ James Van Allen phát hiện và nghiên cứu.</p>
+
+                    <p>Cũng trong năm này, Mỹ tiếp tục phóng các thế hệ vệ tinh Explorer 2, 3, 4, 5 nhằm thực hiện các sứ mệnh tiền đề, phục vụ cho kế hoạch đưa người ra ngoài không gian của Mỹ về sau.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-3-2.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Với vị thế là quốc gia tiên phong trong hành trình khám phá vũ trụ, Liên Xô rất tự tin và tỏ rõ tham vọng trong các chương trình không gian, trong đó có Luna Program.</p>
+
+                    <p>Khi Mỹ đang sốt sắng phát triển vệ tinh nhân tạo Explorer 1 để bắt kịp Sputnik 1 và 2 của Liên Xô thì Moskva đã triển khai Chương trình Mặt Trăng (Luna Program) kéo dài 18 năm (1958-1976), nhằm khám phá vệ tinh tự nhiên lớn nhất và duy nhất của Trái Đất.</p>
+
+                    <p>Năm 1959, Liên Xô phóng phi thuyền đầu tiên trong lịch sử mang tên Luna 1 lên Mặt Trăng, lần đầu tiên tiếp cận thành công vùng lân cận của Mặt Trăng. Cùng năm, Luna 3 đã chụp được những bức ảnh đầu tiên của bề mặt Mặt Trăng ở nửa tối.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-3-3.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Tiêu tốn 1,5 tỷ USD (thời đó) từ năm 1958 đến 1963, Project Mercury là nỗ lực đầu tiên của NASA sau những tháng ngày mới thành lập. Trong hơn 4 năm hoạt động, Project Mercury của NASA đã thực hiện 20 chuyến bay không có người lái, đưa 4 loài vật ra ngoài không gian, gồm 2 con khỉ vàng và 2 con vượn.</p>
+
+                    <p>Đối với các chuyến bay có người lái, Project Mercury lựa chọn được biệt đội ứng viên phi hành gia đầu tiên trong lịch sử, sẵn sàng cho sứ mệnh bay vào không gian. </p>
+
+                    <p>Mercury Seven chính là biệt đội gồm 7 người xuất sắc nhất, được chọn trong số 110 phi công quân sự lão luyện của Mỹ (Để so sánh, biệt đội phi hành gia đầu tiên của Liên Xô gồm 20 người).</p>
+
+                    <p>Nổi bật trong Mercury Seven có 2 anh hùng vũ trụ Mỹ là John Herschel Glenn, Jr. (1921-2016) - Người Mỹ đầu tiên bay vòng quanh quỹ đạo Trái Đất ngày 20/2/1962; và Alan Bartlett Shepard, Jr. (1923-1998) - Người Mỹ đầu tiên bay vào không gian năm 1961 (là người thứ hai bay vào không gian trong lịch sử nhân loại, sau phi hành gia Liên Xô Yuri Gagarin) và đi bộ trên Mặt Trăng năm 1971.</p>
+                </div>
+
+                <div class="emag-title w980" style="margin-top: 60px;">
+                    <img src="images/title-3-4.png" alt="">
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-3-4.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Vệ tinh nhân tạo Vanguard và Project Mercury là hai cái tên thể hiện tư duy đột phá của người Mỹ trong hành trình khám phá vũ trụ, nhưng Liên Xô lại là quốc gia tiên phong biến những tư duy đột phá ấy thành những chiến công vũ trụ hiển hách được lịch sử lưu danh muôn đời. Sputnik 1 và Yuri Gagarin là hai cái tên như thế.</p>
+
+                    <p>Có thể nói, Sputnik 2 chính là 'bước đệm vĩ đại' của Liên Xô để nước này khiến Mỹ ám ảnh thực sự sau sự kiện đưa người lần đầu tiên bay ra ngoài vũ trụ năm 1961.</p>
+                </div>
+
+                <div class="emag-image-left w660">
+                    <img src="images/img-3-2.jpg" alt="" class="w450">
+
+                    <p>Sau khi bí mật chạy đua với Project Mercury của Mỹ bằng chương trình Vostok Program năm 1959 (nhằm đưa người bay ra vùng quỹ đạo Trái Đất tầm thấp), ngày 12/4/1961 trở thành ngày Liên Xô được lịch sử lưu danh muôn đời: Lần đầu tiên trong lịch sử nhân loại, phi hành gia Yuri Gagarin trên con tàu Phương Đông 1 (Vostok 1) đã hoàn thành sứ mệnh bay ngoài không gian, vòng quanh Trái Đất trong 108 phút.</p>
+
+                    <p>Để có được thành tựu 'vô tiền khoáng hậu' này, Liên Xô cần phải biết ơn 2 cái tên: Sergei Pavlovich Korolev và ICBM R-7.</p>
+
+                    <p>Nhân vật bí mật, đóng vai trò vô cùng then chốt trong chương trình không gian Liên Xô không ai khác chính là 'cha đẻ chương trình vũ trụ Liên Xô': Tổng công trình sư Sergei Pavlovich Korolev (1907-1966), chuyên gia thiết kế tên lửa hàng đầu Liên Xô.</p>
+                </div>
+
+                <div class="w660">
+                    <p>Ông chính là 'cha đẻ' của hệ thống tên lửa đạn đạo liên lục địa ICBM đầu tiên trên thế giới R-7.</p>
+
+                    <p>Sau khi đảm nhận vai trò lãnh đạo chương trình vũ trụ, Sergei P. Korolev là người triển khai thành công các chương trình Sputnik và Vostok, giúp Liên Xô vượt Mỹ trong hành trình chinh phục vũ trụ và công nghệ tên lửa những năm đầu diễn ra Chiến tranh Lạnh.</p>
+
+                    <p>Ngay từ thập niên 1930, Liên Xô đã triển khai Chương trình Vũ trụ Liên Xô nhằm thám hiểm không gian và phát triển tên lửa vũ trụ. Sau thành công của vụ phóng thử tên lửa R-7 Semyorka ngày 21/8/1957 (NATO gọi nó là SS-6 Sapwood), Sergei P. Korolev vốn say mê với ý tưởng du hành không gian bằng tên lửa đã cho nâng cấp R-7 thành tên lửa vũ trụ (tên lửa đẩy).</p>
+
+                    <p>R-7 khi đó trở thành bước nhảy vọt lớn nhất trong ngành tên lửa của thế giới kể từ khi tên lửa A-4 của Đức được sử dụng.</p>
+
+                    <p>R-7 phiên bản năm 1957 là tên lửa hai tầng đẩy; dài 31,07 mét (tính cả đầu nổ); tầm bay 8.000 km; sử dụng nhiên liệu Oxy hóa lỏng/hỗn hợp Hydrocacbon; tổng khối lượng là 280 tấn; lực đẩy tối đa là gần 100 kN (kilonewton). Sau khi phóng, thời gian đốt cháy nhiên liệu của tầng 1 tối đa là 130 giây, tầng 2 là 320 giây. Các phiên bản cải tiến về sau có 4 tầng đẩy với khối lượng và hiệu suất tăng dần.</p>
+                </div>
+
+                <div class="w1280">
+                    <img src="images/img-3-3.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption w980">Vostok-K 3 tầng đẩy, phiên bản cải tiến của tên lửa R-7, đưa Yuri Gagarin bay vào không gian lần đầu tiên trong lịch sử. <br /> Ảnh: Internet.</p>
+                </div>
+
+                <div class="w660">
+                    <p>Song song với quá trình nâng cấp R-7, Sergei P. Korolev cho đội thiết kế của mình ngày đêm chế tạo vệ tinh nhân tạo. Chưa đầy một tháng sau, Sputnik 1 ra đời. Khi đó, tên lửa R-7 phiên bản sửa đổi và nâng cấp cũng hoàn thành sau 4 lần phóng thử nghiệm từ tháng 6/1957.</p>
+
+                    <p>Ngày 4/10/1957, tại sân bay vũ trụ Baykonur (Baikonur), tên lửa R-7 số hiệu 8K71PS phóng thành công mỹ mãn vệ tinh nhân tạo đầu tiên trên thế giới Sputnik 1 lên quỹ đạo Trái Đất, giúp Liên Xô trở thành quốc gia tiên phong, mở ra Kỷ nguyên khai phá vũ trụ cho loài người.</p>
+
+                    <p>Ngày 12/4/1961, phiên bản tên lửa R-7 cải tiến (có tên Vostok-K) 3 tầng đẩy từ sân bay vũ trụ Baykonur đã nâng cánh con tàu Vostok 1, đưa Yuri Gagarin bay vào không gian lần đầu tiên trong lịch sử, thành công ngoài sức tưởng tượng của phương Tây và thế giới.</p>
+                </div>
+
+                <div class="w1600">
+                    <img src="images/img-3-4.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption" style="padding: 0 15px;">Vostok-K 3 tầng đẩy, phiên bản cải tiến của tên lửa R-7, đưa Yuri Gagarin bay vào <br /> không gian lần đầu tiên trong lịch sử. Ảnh: Internet.</p>
+                </div>
+
+                <div class="w660">
+                    <p>Song song với quá trình nâng cấp R-7, Sergei P. Korolev cho đội thiết kế của mình ngày đêm chế tạo vệ tinh nhân tạo. Chưa đầy một tháng sau, Sputnik 1 ra đời. Khi đó, tên lửa R-7 phiên bản sửa đổi và nâng cấp cũng hoàn thành sau 4 lần phóng thử nghiệm từ tháng 6/1957. </p>
+
+                    <p>Ngày 4/10/1957, tại sân bay vũ trụ Baykonur (Baikonur), tên lửa R-7 số hiệu 8K71PS phóng thành công mỹ mãn vệ tinh nhân tạo đầu tiên trên thế giới Sputnik 1 lên quỹ đạo Trái Đất, giúp Liên Xô trở thành quốc gia tiên phong, mở ra Kỷ nguyên khai phá vũ trụ cho loài người.</p>
+
+                    <p>Ngày 12/4/1961, phiên bản tên lửa R-7 cải tiến (có tên Vostok-K) 3 tầng đẩy từ sân bay vũ trụ Baykonur đã nâng cánh con tàu Vostok 1, đưa Yuri Gagarin bay vào không gian lần đầu tiên trong lịch sử, thành công ngoài sức tưởng tượng của phương Tây và thế giới.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-3-5.png" alt="">
+                </div>
+
+                <div class="emag-image-left w660">
+                    <img src="images/img-3-5.jpg" alt="" class="w450">
+
+                    <p>2019 là năm đánh dấu tròn 5 thập kỷ NASA và nước Mỹ thiết lập chiến công vũ trụ hiển hách nhất mọi thời đại: Đưa người đổ bộ thành công Mặt Trăng lần đầu tiên trong lịch sử nhân loại.</p>
+
+                    <p>Để có được thành tựu vĩ đại mà chưa một quốc gia nào tái lập được cho đến tận ngày nay; đưa Mỹ trở thành quốc gia đi đầu trong cuộc đua không gian với Liên Xô thời Chiến tranh Lạnh; khép lại thế kỷ 20 đầy bùng nổ trong hành trình khám phá vũ trụ của cặp Long-Hùm... Mỹ và NASA đã phải hao tổn rất nhiều công sức và tiền bạc.</p>
+
+                    <p>Ra đời sau 3 năm kể từ ngày NASA thành lập, chương trình đổ bộ Mặt Trăng có người lái Apollo Program kéo dài hơn 10 năm (1961-1972) là nỗ lực không biết mệt mỏi của cơ quan vũ trụ Mỹ NASA.</p>
+
+                    <p>Với sự đóng góp của hàng nghìn bộ óc từ 400.000 nhà khoa học, kỹ sư, kỹ thuật viên; tiêu tốn hơn 100 tỷ USD (tính theo USD năm 2018) cùng quyết tâm thực hiện cho kỳ được ước vọng vũ trụ của Tổng thống J.F. Kennedy, nước Mỹ đã thành công trong hành trình chạm đến Mặt Trăng - vệ tinh tự nhiên duy nhất và lớn nhất của Trái Đất ở khoảng cách 384.400 km.</p>
+                </div>
+
+                <div class="w1280">
+                    <img src="images/img-3-6.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption w980">Nguồn đồ họa: Space Center</p>
+                </div>
+
+                <div class="w660">
+                    <p>Để có được thành tựu lịch sử lưu danh muôn đời này, NASA cũng phải tạo dựng những bước đệm mang tính lịch sử tương đương. Và xương sống công nghệ của Apollo Program chính là Saturn V - hệ thống tên lửa vũ trụ cực kỳ tối tân của Mỹ. </p>
+
+                    <p>Là hệ thống chuyên sử dụng để phóng tàu đổ bộ Mặt Trăng, Saturn V được mệnh danh là Tên lửa Mặt Trăng. Với chiều cao 111 mét và được cung cấp nhiên liệu là Hydro lỏng, Oxy lỏng và dầu hỏa, tính cho đến nay Saturn V vẫn giữ kỷ lục là tên lửa mạnh nhất từng được chế tạo trong lịch sử.</p>
+
+                    <p>Nếu như Tổng công trình sư Sergei Pavlovich Korolev là 'cha đẻ của chương trình vũ trụ Liên Xô', trực tiếp chế tạo và nâng cấp hệ thống tên lửa R-7 - xương sống của các chương trình phóng vệ tinh Sputnik, tàu vũ trụ Vostok và nhiều chương trình phóng khác - thì nhà khoa học tên lửa hàng đầu của Đức Wernher Von Braun (1912-1977) lại được mệnh danh là 'cha đẻ chương trình vũ trụ Mỹ', nhân vật có công 'nhào nặn' Saturn V trở thành phương tiện giúp con người tiến đến các vì sao gần hơn bao giờ hết.</p>
+                </div>
+
+                <div class="emag-image-right w660">
+                    <img src="images/img-3-7.jpg" alt="" class="w450">
+
+                    <p>Là một trong những tên tuổi hàng đầu của công cuộc phát triển kỹ nghệ tên lửa Đức Quốc xã, trước và trong Thế chiến II (1939-1945), cùng với Hermann J. Oberth (khi đó đã mất thị lực ở mắt trái sau một thí nghiệm khoa học), Wernher Von Braun trở thành người đồng lãnh đạo chương trình phát triển tên lửa V-2 (còn gọi là A4) của Đức - tên lửa đạn đạo tác chiến đầu tiên trong lịch sử.</p>
+
+                    <p>Ngày 13/6/1942, V-2 (viết tắt của từ tiếng Đức Vergeltungswaffen, có nghĩa là "Vũ khí báo thù") của Đức Quốc xã được thử nghiệm thành công. Dài 14 mét, nặng 13,2 tấn, V-2 sử dụng nguyên liệu cồn và Oxygen lỏng, có khả năng tạo ra lực đẩy hơn 27 tấn.</p>
+
+                    <p>Lĩnh hội tư duy xuất chúng của Hermann J. Oberth (nhân vật thuộc bộ ba "cha đẻ ngành tên lửa và du hành vũ trụ hiện đại"), Wernher Von Braun sáng tạo và nâng cấp V-2 trở thành ten lửa có thể mang theo đầu đạn nặng 1 tấn và di chuyển với tốc độ 5.600 km/giờ, đồng thời trở thành vật thể đầu tiên do con người tạo ra có thể đạt đến ngưỡng không gian (bay tới độ cao 80 km so với mặt đất).</p>
+                </div>
+
+                <div class="w660">
+                    <p>Tài năng hiếm có của Wernher Von Braun khiến chính phủ Mỹ chú ý. Chiến tranh kết thúc, CIA nhanh chóng triển khai Chiến dịch Paperclip, bí mật chiêu mộ hàng nghìn tài năng khoa học Đức Quốc xã làm việc cho Mỹ. Kết quả, CIA thu nạp được hơn 1.600 nhà khoa học, kỹ sư và kỹ thuật viên người Đức, trong đó dĩ nhiên có Wernher Von Braun.</p>
+
+                    <p>Nước cờ của CIA nhanh chóng phát huy tác dụng. Sau khi được bổ nhiệm vị trí Giám đốc Trung tâm Bay không gian Marshall thuộc NASA, Tiến sĩ Wernher Von Braun cùng đội nghiên cứu của mình đã thay đổi thế giới theo đúng nghĩa đen với hệ thống tên lửa tối tân Saturn V mạnh nhất, lớn nhất và nổi tiếng nhất trong lịch sử.</p>
+
+                    <p>Trong bài viết kỷ niệm 50 năm ngày Apollo 11 đổ bộ Mặt Trăng, kênh National Geographic(Mỹ) đã miêu tả sức mạnh chuyển mình vĩ đại của Saturn V như thế này: </p>
+
+                    <p>Cao 111 mét và nặng 2,9 triệu kg, tên lửa Saturn V có khả năng sinh ra lực đẩy mạnh 34,5 triệu Newton sau khi phóng, tổng năng lượng mà nó tạo ra mạnh gấp 85 lần sức mạnh của đập thủy điện Hoover. Đập Hoover được mệnh danh là một trong 7 công trình xây dựng vĩ đại nhất nước Mỹ, là một trong 100 kỳ quan của thế giới ở thế kỷ 20.</p>
+                </div>
+
+                <div class="w1200">
+                    <img src="images/img-3-8.jpg" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Saturn V là tên lửa đẩy 3 tầng. Chữ "V" mang ý nghĩa thiết bị này sở hữu 5 động cơ tên lửa F1 khổng lồ. Cho đến nay, 5 động cơ do Wernher Von Braun thiết kế vẫn là những động cơ tên lửa nhiên liệu lỏng một buồng mạnh nhất từng được chế tạo trong lịch sử.</p>
+
+                    <p>Trong quá trình phóng, tên lửa sẽ tự tách thành 3 giai đoạn đốt cháy động cơ cho đến khi hết nhiên liệu để tự đẩy mình ra khỏi bầu khí quyển: Sau khi di chuyển được 68 km so với mặt đất, giai đoạn đầu tiên tạo ra lực đẩy 3,4 triệu kg (có lực đẩy mạnh gấp 130 lần tên lửa V2) sẽ kết thúc, liền sau đó kích hoạt giai đoạn thứ hai. Tại vị trí rìa quỹ đạo, giai đoạn thứ hai kết thúc, bắt đầu giai đoạn thứ ba, đẩy tên lửa tiến thẳng lên Mặt Trăng.</p>
+
+                    <p>Tổng cộng trong vòng 6 năm (từ 1967 đến 1973), NASA đã phóng 13 tên lửa Saturn V, phục vụ cho Chương trình Apollo, mà không có bất kỳ tổn thất nào. Không chỉ đảm nhận các nhiệm vụ đẩy phi thuyền Apollo, Saturn V còn được sử dụng để phóng trạm không gian đầu tiên của Mỹ Skylab năm 1973.</p>
+
+                    <p>Giá cho mỗi tên lửa Saturn V phóng vào không gian hồi đó lên tới 100 triệu USD/một tên lửa (tương đương 750 triệu USD ngày nay).</p>
+                </div>
+
+                <div>
+                    <img src="images/img-3-9.jpg" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Nước Mỹ mãi mãi biết ơn bàn tay và khối óc của Wernher Von Braun, người được mệnh danh là 'cha đẻ của chương trình vũ trụ Mỹ', nhân vật định hình sứ mệnh khai phá không gian giúp Mỹ dẫn đầu trong cuộc chạy đua lên Mặt Trăng với Liên Xô thời Chiến tranh Lạnh. </p>
+
+                    <p>Huân chương Khoa học Quốc gia danh giá mà Wernher Von Braun vinh dự nhận từ nước Mỹ chính là sự công nhận tài năng Đức cao nhất mà Washington dành tặng cho ông. Trên hết, tên tuổi của Wernher Von Braun mãi gắn liền với thế hệ tên lửa mạnh nhất, cao nhất và nổi tiếng nhất trong lịch sử Saturn V.</p>
+
+                    <p>Xét riêng dước góc độ của cuộc chạy đua lên không gian Chiến tranh Lạnh, thời đó, vì không có khả năng phóng thiết bị tên lửa đẩy với độ phức tạp cần thiết cho một cuộc đổ bộ Mặt Trăng (riêng thế hệ tên lửa R-7 cải tiến của Liên Xô, trong 3 lần phóng thử tàu thăm dò Mặt Trăng từ tháng 9 đến tháng 12 năm 1958 đều nhận thất bại); thêm việc đứng trước thành tích "vô tiền khoáng hậu" của địch thủ trên vệ tinh tự nhiên duy nhất của Trái Đất, Liên Xô chính thức khép lại cuộc chạy đua lên Mặt Trăng vào những năm 1970.</p>
+
+                    <p>Chiến thắng hoàn toàn nghiêng về người Mỹ, NASA, Apollo 11 và Saturn V.</p>
+                </div>
+
+                <div class="w980">
+                    <img src="images/img-3-10.jpg" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Nói thêm về hành trình đưa người tiếp tục đổ bộ Mặt Trăng khác của Mỹ trong thế kỷ 20, từ năm 1969 đến 1972, Mỹ triển khai đến sứ mệnh Apollo 17 đưa người lưu lại Mặt Trăng lâu hơn, đồng thời thu thập gần 400 kg mẫu vật Mặt Trăng đưa về Trái Đất nghiên cứu. </p>
+
+                    <p>Cũng trong khoảng thời gian này, các phi hành gia Mỹ đã hạ cánh tại 6 địa điểm trên Mặt Trăng, mỗi địa điểm được chọn đều nhằm phục vụ cho các mục tiêu khoa học khác nhau. Có tổng 12 người đặt chân lên Mặt Trăng, và đều là phi hành gia Mỹ thuộc Chương trình Apollo (xem đồ họa).</p>
+
+                    <p>Năm 1976 đánh dấu hai thời điểm quan trọng trong cuộc đua lên Mặt Trăng của hai siêu cường Mỹ-Xô:</p>
+
+                    <p>(1) Tàu vũ trụ không người lái Luna 24 của Liên Xô lên đường thực hiện sứ mệnh hạ cánh cuối cùng lên Mặt Trăng trong thế kỷ 20. Sau khi đổ bộ an toàn, Luna 24 mang 170 gram đất Mặt Trăng về Trái Đất nghiên cứu.</p>
+
+                    <p>(2) 1976 cũng là năm đánh dấu thời điểm 2 cường quốc Chiến tranh Lạnh chính thức khép lại cuộc đua lên vệ tinh tự nhiên của Trái Đất sau những thành tựu rực rỡ mà cả hai đã không ngừng cống hiến cho nhân loại.</p>
+
+                    <p>Nhiều thập kỷ kể từ sau sứ mệnh Apollo 17, trở lại Mặt Trăng không còn là sứ mệnh được ưu tiên trong các chương trình không gian của Mỹ và các cường quốc vũ trụ khác trên thế giới.</p>
+
+                    <p>Các sứ mệnh khám phá về sau chỉ được thực hiện lẻ tẻ, trong số đó đáng chú ý là Tàu Quỹ đạo Trinh sát Mặt Trăng (LRO) của NASA đã tạo ra các bản đồ có độ phân giải cao về bề mặt Mặt Trăng, và phát hiện nhiệt độ siêu lạnh (âm 234 độ C) tại bề mặt vệ tinh tự nhiên này.</p>
+
+                    <p>Nói một cách ngắn gọn, sứ mệnh chinh phục Mặt Trăng 'ngủ yên' trong gần 4 thập kỷ, cho đến khi người Trung Quốc 'đánh thức' cuộc đua đầy mới mẻ trong một thế kỷ mới - thế kỷ 21.</p>
+                </div>
+
+                <div class="emag-credit w660">
+                    <img src="images/credit-3.png" alt="">
+                </div>
+            </div>
+        </div>
 
         <div class="emag-tab" data-content="4">
             <div class="emag-cover">
                 <img src="images/cover-4.jpg" alt="">
+            </div>
+
+            <div class="emag-content">
+                <div class="emag-sapo w660">
+                    <img src="images/sapo-4.png" alt="" class="wow fadeInUp" data-wow-duration="1s">
+                </div>
+
+                <div class="w660">
+                    <p>Bốn tháng sau ngày Trung Quốc trở thành quốc gia đầu tiên trong lịch sử đổ bộ thành công nửa tối Mặt Trăng (hồi tháng 1/2019), ông Donald Trump đã yêu cầu Quốc hội tăng chi tiêu cho NASA trong năm tài khóa 2020 thêm 1,6 tỷ USD, nâng tổng mức chi tiêu cho NASA năm 2020 lên tới 22,6 tỷ USD, nhằm đẩy nhanh, đẩy mạnh sứ mệnh đưa người tái đổ bộ Mặt Trăng trong năm 2024.</p>
+
+                    <p>Điều gì đã khiến vị tổng thống thứ 45 của Mỹ ra quyết tâm và một lần nữa đặt trọng trách quốc gia lên vai NASA trong bối cảnh chưa một quốc gia nào lật đổ được vị trí đưa người đổ bộ thành công Mặt Trăng của cơ quan này cách đây 50 năm?</p>
+
+                    <p>Câu trả lời phải chăng đến từ Trung Quốc và sứ mệnh Chang'e-4 mà quốc gia này mới thực hiện?</p>
+
+                    <p>Trong tổng số 21 cuộc đổ bộ lên Mặt Trăng (của tàu không có người lái và tàu có người lái), 19 cuộc đổ bộ của Mỹ và Liên Xô đều diễn ra trong khoảng thời gian từ năm 1966 đến 1976. Sau đó, loài người 'ngủ yên' hành trình lên Mặt Trăng trong 37 năm. Nhưng rồi Trung Quốc bỗng 'hồi sinh' cuộc đua lên vệ tinh tự nhiên Trái Đất bằng sự kiện lần đầu tiên trong lịch sử nước này đưa tàu thăm dò Chang'e-3 đổ bộ Mặt Trăng năm 2013.</p>
+
+                    <p>Không dừng ở đó, ngày 3/1/2019 trở thành ngày ngành vũ trụ Trung Quốc được lịch sử lưu danh: Sau 12 phút hạ cánh nghẹt thở, tàu thăm dò Chang’e-4 (Hằng Nga-4, hoặc Thường Nga-4) đổ bộ thành công nửa tối Mặt Trăng.</p>
+
+                    <p>Sự kiện này chính thức đưa Trung Quốc trở thành quốc gia đầu tiên trong lịch sử nhân loại tiến hành một cuộc thám hiểm ở nửa tối bí ẩn của Mặt Trăng; đồng thời sánh ngang với Liên Xô (nay là Nga) và Mỹ trong vai trò là quốc gia thứ 3 trong lịch sử đưa tàu đổ bộ lên bề mặt Mặt Trăng.</p>
+
+                    <p>Chang’e-4 trở thành dấu mốc lịch sử khó quên với Cục Vũ trụ Quốc gia Trung Quốc (CNSA) nói riêng và cả ngành du hành vũ trụ của nhân loại nói chung, bởi trước đó, chưa một nhà du hành hay tàu vũ trụ không người lái nào đặt chân lên thế giới bí ẩn này của Mặt Trăng.</p>
+
+                    <p>Thành tựu này khiến Mỹ, Nga và nhiều cường quốc vũ trụ khác choáng váng. Bởi sao? Trung Quốc vốn từ lâu được xem là một đối thủ yếu trong cuộc đua vũ trụ, nay bỗng 'cựa mình' và tạo được thành tựu mà chưa một quốc gia nào thực hiện trước đó.</p>
+
+                    <p>Để có được thành tựu khuấy động thế kỷ 21 này, Trung Quốc cũng phải nâng cấp chính mình và công nghệ chinh phục vũ trụ trong nhiều thập kỷ. Hãy xem quốc gia châu Á này trưởng thành như thế nào sau gần 50 năm qua.</p>
+                </div>
+
+                <div class="emag-title w980" style="margin-top: 60px;">
+                    <img src="images/title-4-1.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Thập niên 1950 đánh dấu những nước đi đầu tiên vào hành trình chinh phục vũ trụ của Trung Quốc bằng sự kiện nước này độc lập phát triển tên lửa đạn đạo.</p>
+
+                    <p>Năm 1970, dù Trung Quốc phóng thành công vệ tinh nhân tạo đầu tiên của nước này lên quỹ đạo Trái Đất, nhưng lãnh đạo Trung Quốc Đặng Tiểu Bình năm 1978 lại nêu rõ quan điểm: Là một quốc gia đang phát triển, Trung Quốc sẽ không tham gia vào một cuộc đua vũ trụ với các cường quốc khác, thay vào đó, sẽ tập trung vào các phương tiện phóng và phát triển vệ tinh (bao gồm vệ tinh thông tin liên lạc, viễn thám và khí tượng).</p>
+
+                    <p>Năm 1993, Trung Quốc thành lập Cục Vũ trụ Quốc gia Trung Quốc (CNSA), trực thuộc của Bộ Công nghiệp và Công nghệ Thông tin, với sứ mệnh thực thi các chính sách vũ trụ quốc gia và quản lý khoa học, công nghệ, công nghiệp vũ trụ quốc gia.</p>
+
+                    <p>Bước vào thế kỷ 21, với một tư tưởng mới cùng một tâm thế mới, Trung Quốc "lột xác" hoàn toàn với các chương trình không gian mang đến nhiều thành tựu, trong đó phải kể đến Chương trình tàu không gian có người lái mang tên Thần Châu (Shenzhou).</p>
+
+                    <p>Ngày 15/10/2003, tàu vũ trụ Thần Châu 5 đưa phi hành gia người Trung Quốc đầu tiên bay vào vũ trụ, phi hành gia Dương Lợi Vĩ (Yang Liwei), thực hiện chuyến bay 14 vòng quanh Trái Đất. Sự kiện này đánh dấu bước ngoặt cho Trung Quốc, đưa nước này trở thành quốc gia thứ 3 trên thế giới đưa người lên vũ trụ một cách độc lập (sau Mỹ và Liên Xô).</p>
+
+                    <p>Năm 2007, Trung Quốc khởi động Chương trình thám hiểm Mặt Trăng mang tên Chang'e. Ở 2 sứ mệnh Mặt Trăng đầu tiên (Chang'e-1 phóng năm 2007 và Chang'e-2 phóng năm 2010) Trung Quốc thành công trong việc phóng tàu bay quay quanh quỹ đạo Mặt Trăng.</p>
+
+                    <p>Riêng sứ mệnh Chang'e-2 còn lập được bản đồ Mặt Trăng có độ phân giải cao hơn; đồng thời cung cấp hình ảnh độ nét cao về Sinus Iridum (còn gọi là Vịnh Cầu vồng, là một vùng đồng bằng dung nham bazan thuộc phần tây bắc của Mare Imbrium - một trong những miệng núi lửa lớn của Thái Dương Hệ).</p>
+                    
+                    <p>Ở sứ mệnh Chang'e-3 năm 2013, Trung Quốc tiếp tục thành công trong việc hạ cánh một tổ hợp tàu thăm dò tự hành có tên Yutu-1 (Thỏ Ngọc 1) tại nửa nhìn thấy được của Mặt Trăng.</p>
+
+                    <p>Ngày 8/12/2018, tên lửa Long March 3B (Trường Chinh 3B) được phóng từ Trung tâm phóng vệ tinh Tây Xương (tỉnh Tứ Xuyên) mang theo Chang'e-4 bay thẳng lên Mặt Trăng. </p>
+                </div>
+
+                <div class="w980">
+                    <img src="images/img-4-1.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption">Sứ mệnh Chang'e-4 gồm: Tàu thám hiểm Chang’e-4, robot tự hành Yutu-2 và vệ tinh chuyển tiếp liên lạc Queqiao.</p>
+                </div>
+
+                <div class="w660">
+                    <p>Sứ mệnh Chang'e-4 gồm: Tàu thám hiểm Chang’e-4, robot tự hành trên mặt đất Yutu-2 và một vệ tinh chuyển tiếp liên lạc Queqiao. Địa điểm hạ cánh và nghiên cứu của Chang’e-4 là hố va chạm Mặt Trăng Von Kármán, đường kính 186 km, thuộc lưu vực Aitken Nam Cực ở nửa tối Mặt Trăng. Lưu vực Aitken Nam Cực là một trong những hố núi lửa lớn nhất trong Hệ Mặt Trời, đường kính 2.414km, bao phủ 1/4 bề mặt Mặt Trăng.</p>
+
+                    <p>'Xương sống công nghệ' của Chương trình thám hiểm Mặt Trăng Trung Quốc chính là hệ thống tên lửa Long March. Năm 1996, tên lửa đẩy quỹ đạo 3 tầng, với 4 tầng tách Long March được phóng thử thành công. </p>
+
+                    <p>Cho đến nay, tên lửa Long March 3B (còn gọi là Trường Chinh 3B, hay CZ-3B và LM-3B) là tên lửa mạnh nhất trong dòng tên lửa Long March.</p>
+
+                    <p>Công suất GTO của Long March 3B lên tới 5,1 tấn. Phiên bản nâng cao Long March 3B/E có công suất GTO 5,5 tấn, chuyên dùng cho việc phóng vệ tinh GEO hạng nặng.</p>
+
+                    <p>GTO gọi là quỹ đạo chuyển tiếp địa tĩnh, động cơ tên lửa đạt công suất GTO mạnh có thể tạo xung lực cần thiết để đưa vệ tinh/tàu vũ trụ lên quỹ đạo địa tĩnh (GEO).</p>
+                </div>
+
+                <div class="w660">
+                    <img src="images/img-4-2.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption">Cho đến nay, tên lửa Long March 3B (còn gọi là Trường Chinh 3B, hay CZ-3B và LM-3B) <br /> là tên lửa mạnh nhất trong dòng tên lửa Long March. Ảnh: Internet</p>
+                </div>
+
+                <div class="w660">
+                    <p>Theo các nhà quan sát vũ trụ, việc phóng tàu thăm dò Mặt Trăng thế hệ thứ 4 Chang'e-4 đã chứng minh Trung Quốc đang "nhất cử lưỡng tiện": Vừa để nghiên cứu bề mặt Mặt Trăng nhằm trả lời những câu hỏi liên quan đến Trái Đất, vừa để tìm kiếm nguồn nguyên liệu cực đắt đỏ, từ đó giúp Trung Quốc tiến xa hơn với những mục tiêu khám phá không gian sâu trong tương lai.</p>
+
+                    <p>Thừa thắng xông lên, Trung Quốc bắt tay ngay vào kế hoạch phát triển Chang'e-5, Chang'e-6 với sứ mệnh đáp xuống bề mặt Mặt Trăng, thu thập và đưa các mẫu vật trở về Trái Đất nghiên cứu. Các chương trình này nhằm tạo tiền đề cho một cuộc đổ bộ lên Mặt Trăng của Trung Quốc vào những năm 2030 và có thể xây dựng một tiền đồn gần cực Nam Mặt Trăng.</p>
+
+                    <p>Chưa hết, sao Hỏa cũng là đích ngắm của nước này. Trung Quốc mong muốn thu thập và mang các mẫu vật từ Hành tinh Đỏ về Trái Đất nghiên cứu. Nước này cũng đang bắt đầu xây dựng một trạm vũ trụ mới vào năm 2020 và kỳ vọng sẽ đi vào hoạt động năm 2022.</p>
+                </div>
+
+                <div class="emag-title w980" style="margin-top: 60px;">
+                    <img src="images/title-4-2.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <img src="images/img-4-3.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Giới chuyên gia vũ trụ cho biết, nhân loại có nhiều khả năng sẽ tìm thấy vàng, bạc, bạch kim và iridium (kim loại có khả năng chống ăn mòn nhất) trên các tiểu hành tinh, vệ tinh, thiên thạch... Và Mặt Trăng, vệ tinh tự nhiên chỉ cách Trái Đất 384.400 km, là một thế giới rộng lớn, chứa rất nhiều nguyên liệu quý hiếm, đắt đỏ.</p>
+
+                    <p>Đơn cử là Helium-3 (Heli-3) - nguồn nguyên liệu hạt nhân sạch - với trữ lượng do Chương trình thám hiểm Mặt Trăng Trung Quốc (CLEP) ước tính có từ 1 đến 5 triệu tấn.</p>
+
+                    <p>Đứng trước một Trung Quốc đầy tham vọng, ẩn chứa nhiều yếu tố bất ngờ như vậy, cả Mỹ, Nga và nhiều quốc gia khác bắt đầu đẩy mạnh cuộc đua lên Mặt Trăng. Thế kỷ 21, nhờ thế, mà nóng hơn bao giờ hết trong hành trình khẳng định tiềm lực công nghệ quốc gia cùng tham vọng làm giàu từ vệ tinh khổng lồ này.</p>
+
+                    <p>Hãy xem Mỹ, Nga, châu Âu và các quốc gia khác đã chuẩn bị những gì cho cuộc đua lên Mặt Trăng mà Trung Quốc 'hồi sinh' ở thế kỷ 21 này.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-4-1.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Trong bài phát biểu của mình ở khuôn khổ cuộc họp thứ 5 của Hội đồng Vũ trụ Quốc gia Mỹ ngày 26/3/2019, Phó Tổng thống Mỹ Mike Pence không chỉ dẫn lại khát vọng của Tổng thống John F. Kennedy (1917-1963), người đã có tuyên bố táo bạo tương tự về một nước Mỹ lần đầu tiên xây dựng kế hoạch đưa người đổ bộ Mặt Trăng mà không có bất kỳ sự ủng hộ nào, ông còn bày tỏ niềm tin về sức mạnh công nghệ 'vươn tới các vì sao' mà Mỹ đang nắm giữ:</p>
+
+                    <p>"Một số người sẽ nói rằng trở lại Mặt Trăng vào năm 2024 là quá khó, quá rủi ro và quá đắt đỏ. Thế nhưng, những nỗi lo sợ này cũng đã được nói vào năm 1962 (một năm sau khi Tổng thống J.F. Kennedy ra lời hiệu triệu), để rồi, 7 năm sau đó chúng ta đã làm nên kỳ tích, và khiến cả thế giới phải nể phục.</p>
+
+                    <p>Kể từ khi sứ mệnh Apollo 11 kết thúc, chúng ta đã tạo ra những đột phá đáng kinh ngạc trong ngành kỹ nghệ vũ trụ, cho phép người Mỹ tiến xa hơn, ít rủi ro hơn trong hành trình chinh phục không gian. Vậy tại sao chúng ta không thiết lập kỳ tích ấy một lần nữa!"</p>
+
+                    <p>Thay vì lộ trình 8 năm (2019-2028) đưa người tái đổ bộ Mặt Trăng, NASA giờ đây phải rút gọn xuống còn 5 năm. Do đó, điểm đổ bộ tiếp theo của cơ quan này được định hình rõ ràng ngày từ đầu: Đưa hai phi hành gia (1 nam, 1 nữ) đổ bộ cực Nam Mặt Trăng. Nơi đây được xác định là có giá trị kinh tế lớn (chứa nguồn khoáng sản giàu có) và tạo chiến lược lớn (hứa hẹn là trạm xăng không gian).</p>
+
+                    <p><strong><em>Chương trình Artemis Program của NASA (2019-2024)</em></strong></p>
+
+                    <p>Artemis (tên nữ thần trong thần thoại Hy Lạp, người em sinh đôi với thần Apollo) là tên chương trình thám hiểm Mặt Trăng thế kỷ 21 của NASA với mục tiêu lớn nhất: Đưa người tái đổ bộ Mặt Trăng năm 2024, tạo bàn đạp đổ bộ sao Hỏa trong tương lai.</p>
+                </div>
+
+                <div>
+                    <img src="images/img-4-4.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption" style="padding: 0 30px;">NASA triển khai Chương trình Artemis nhằm đưa người đổ bộ Mặt Trăng năm 2024. <br /> Ảnh: Internet</p>
+                </div>
+
+                <div class="w660">
+                    <p>Đứng trước yêu cầu cấp thiết 'làm chủ Mặt Trăng' của Tổng thống Donald Trump cùng khoản đầu tư khổng lồ 22,6 tỷ USD trong năm 2020, NASA đưa ra lộ trình Artemis cụ thể như sau:</p>
+
+                    <p>- Tích cực phát triển thế hệ tên lửa mạnh phiên bản mới mang tên Hệ thống phóng không gian (SLS - Space Launch System) nhằm đưa người lên Mặt Trăng và thám hiểm không gian sâu.</p>
+
+                    <p>- Hoàn thiện tàu vũ trụ Orion phục vụ sứ mệnh đổ bộ Mặt Trăng.</p>
+                    
+                    <p>- Năm 2020: NASA khởi động Artemis 1, nhằm thử nghiệm hệ thống tên lửa đẩy SLS và tàu vũ trụ Orion.</p>
+
+                    <p>- Năm 2022: Thực hiện sứ mệnh Artemis 2 - sứ mệnh tiền đồn trước khi đổ bộ Mặt Trăng, đưa phi hành gia kết nối phi thuyền Gateway tại vùng quỹ đạo Mặt Trăng. Gateway đóng vai trò là ngôi nhà ngoài không gian của phi hành gia để sinh sống, làm việc, nghiên cứu Mặt Trăng kỹ lưỡng hơn.</p>
+
+                    <p>- Năm 2024: Triển khai sứ mệnh Artemis 3, chính thức đưa người (2 phi hành gia) tái đổ bộ Mặt Trăng tại cực Nam vệ tinh này.</p>
+
+                    <p>Theo kế hoạch, sau khi đổ bộ Mặt Trăng, NASA sẽ thực hiện các nhiệm vụ: (1) Tìm và sử dụng nước (dạng băng) cũng như tài nguyên quan trọng khác trên Mặt Trăng cần thiết cho các sứ mệnh thăm dò dài hạn; (2) Giải mã những bí ẩn trên Mặt Trăng, từ đó tìm hiểu thêm về Trái Đất và vũ trụ; (3) Tìm hiểu cách sống và sinh hoạt trên bề mặt của một thiên thể khác; (4) Kiểm chứng công nghệ Trái Đất trước khi thực hiện sứ mệnh đổ bộ sao Hỏa.</p>
+
+                    <p><strong><em>'Siêu phẩm' Blue Moon của tỷ phú Jeff Bezos</em></strong></p>
+
+                    <p>Ngoài NASA, nước Mỹ còn có nhiều công ty vũ trụ tư nhân xem Mặt Trăng là đích đến sau những năm 2020. Tỷ phú Mỹ giàu nhất hành tinh (tính đến năm 2019) Jeff Bezos cũng xem Mặt Trăng là đích đến sau những năm 2020.</p>
+
+                    <p>'Át chủ bài' của Jeff Bezos trong hành trình chinh phục Mặt Trăng là "phương tiện phi thường" mang tên Blue Moon - siêu phẩm của Công ty hàng không vũ trụ Blue Origin do Jeff Bezos sáng lập.</p>
+                </div>
+                
+                <div class="w980">
+                    <img src="images/img-4-5.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption">Tỷ phú Jeff Bezos và 'siêu phẩm' Blue Moon. Ảnh: Inverse</p>
+                </div>
+
+                <div class="w660">
+                    <p>Tàu đổ bộ Blue Moon cao 7 mét, nặng khoảng 16,5 tấn (khi nạp đầy nhiên liệu). Khi chạm tới bề mặt Mặt Trăng, sau khi đốt cháy gần như toàn bộ nhiên liệu, tàu chỉ còn nặng khoảng 3,3 tấn. Để so sánh, mô-đun Mặt Trăng của phi thuyền Apollo 11 cao 7 mét và nặng 4,7 tấn.</p>
+
+                    <p>Sở dĩ, tỷ phú Jeff Bezos gọi Blue Moon là 'phương tiện phi thường' là bởi tuy nhỏ nhưng Blue Moon có khả năng tải trọng lớn lên tới 4 tấn hàng hóa khi đổ bộ Mặt Trăng. Thậm chí, một biến thể của Blue Moon có thể mang tới 7,2 tấn. Có được điều này là nhờ Blue Moon sử dụng các động cơ BE-7 tối tân nhất của Blue Origin. Những động cơ mới này sẽ được cung cấp nhiên liệu Hydro lỏng (LH2) và Oxy lỏng (LOX).</p>
+
+                    <p>Theo CEO Amazon, Mặt Trăng có chứa nước, ở dạng băng. Và Blue Moon có thể sử dụng điện phân để tác nước thành Hydro và Oxy. Việc Blue Origin trang bị cho Blue Moon động cơ chạy bằng LH2/LOX không chỉ cung cấp hiệu suất tốt hơn mà còn có thể tiếp tục vận hành bằng chính tài nguyên thiên nhiên hứa hẹn được tìm thấy trên Mặt Trăng.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-4-2.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <img src="images/img-4-6.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Ngay sau khi đảm nhận vị trí Tổng giám đốc Cơ quan Vũ trụ Châu Âu (ESA) ngày 1/7/2015, ông Jan Worner bắt đầu thảo luận ý tưởng về một ngôi làng trên Mặt Trăng với các đối tác quốc tế.</p>
+
+                    <p>Làng Mặt Trăng (ESA Moon Village) sẽ là một không gian mở, nơi ESA đưa phi hành gia của họ và chào đón các công dân toàn cầu đến sinh sống (gồm dân thường và các nhà khoa học). Những ngôi nhà trong Làng Mặt Trăng sẽ được xây dựng bằng công nghệ in 3D.</p>
+
+                    <p>Không giống như việc Mỹ đơn phương đổ bộ Mặt Trăng năm 1969, Làng Mặt Trăng sẽ là dự án xây dựng quốc tế, giống như Trạm Vũ trụ Quốc tế (ISS), nơi các quốc gia/tổ chức quốc tế cùng nhau xây dựng và hoạt động nhằm tìm hiểu và khai thác các nguồn lực tại chỗ trên Mặt Trăng, hướng đến các sứ mệnh khám phá không gian sâu hơn.</p>
+
+                    <p>50 năm kể từ khi Mỹ đưa người đổ bộ Mặt Trăng, ISS là nơi thứ hai loài người ở trong không gian.</p>
+                </div>
+
+                <div>
+                    <img src="images/img-4-7.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption" style="padding: 0 30px;">Làng Mặt Trăng (ESA Moon Village) là ý tưởng của Tổng giám đốc Cơ quan Vũ trụ Châu Âu (ESA) Jan Worner. <br /> Ảnh: Internet</p>
+                </div>
+
+                <div class="w660">
+                    <p>Nói về khoản đầu tư quốc tế để xây dựng Làng Mặt Trăng, các chuyên gia nhận định, số tiền khổng lồ để duy trì hoạt động của ISS đang là 'gánh nặng' của nhiều quốc gia, trong đó có Mỹ, Nga tiêu tốn hàng tỷ USD mỗi năm cho ISS. Do đó, trước khi ISS ngừng hoạt động vào sau những năm 2020, Làng Mặt Trăng mới chỉ nằm trong các bản kế hoạch của ESA.</p>
+
+                    <p>Hơn nữa, hiện tại các cường quốc vũ trụ đang tốc lực theo đuổi các mục tiêu không gian của riêng họ: Mỹ đang tập trung vào sứ mệnh đưa người tái đổ bộ Mặt Trăng năm 2024, hướng đến Hành trình tới sao Hỏa sau đó; Nga và Nhật Bản tập trung mạnh vào quỹ đạo Trái Đất tầm thấp (LEO) và Mặt Trăng; Trung Quốc và Ấn Độ cũng có những dự án riêng của họ trên Mặt Trăng và không gian khác...</p>
+
+                    <p>ESA giải quyết bài toán kinh phí này như thế nào? Không giống như sao Hỏa, Mặt Trăng dễ tiếp cận hơn với nhiều đối tác thương mại, do đó ESA đang nhắm đến mục đích mở rộng hợp tác với không chỉ các quốc gia mà còn với các tổ chức/công ty vũ trụ tư nhân trên toàn thế giới nhằm biến Mặt Trăng trở thành mục tiêu khai thác thương mại, du lịch không gian... từ đó thu hút được nguồn đầu tư lớn, đôi bên cùng có lợi.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-4-3.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Xây dựng một căn cứ địa Mặt Trăng trong vòng 2 thập kỷ tới là ưu tiên số 1 của Cơ quan Vũ trụ Liên bang Nga (Roscosmos).</p>
+
+                    <p>Ngày 28/11/2018, Roscosmos chính thức công bố kế hoạch hiện thực hóa khát vọng chinh phục Mặt Trăng của Nga từ nay đến năm 2040. Roscosmos lên kế hoạch khám phá cực Nam của Mặt Trăng, khu vực được cho là chứa nước dạng băng, tồn tại dưới bề mặt vệ tinh này. Sau đó, Nga dự định sẽ xây dựng một căn cứ cho người ở, từ đó tạo bàn đạp cho các sứ mệnh khám phá không gian sâu hơn.</p>
+
+                    <p>Chiến lược xây dựng căn cứ địa Mặt Trăng gồm 3 giai đoạn: </p>
+
+                    <p><strong>Giai đoạn 1:</strong> Khởi động mô-đun quay quanh Mặt Trăng. Dự kiến, tàu thăm dò Luna 27 của Nga sẽ lên đường đổ bộ cực Nam của Mặt Trăng vào năm 2020. Hãng TASS cho biết, Tập đoàn tên lửa vũ trụ Energia (Nga) đang xây dựng hệ thống tên lửa khổng lồ, tối tân, có khả năng đưa 70 tấn hàng hóa lên quỹ đạo Trái Đất tầm thấp. Dự kiến, sau lần phóng đầu tiên vào năm 2028, tên lửa mới này sẽ đảm nhận đưa các phi hành gia Nga đổ bộ Mặt Trăng.</p>
+
+                    <p><strong>Giai đoạn 2:</strong> Lần đầu tiên trong lịch sử, Nga sẽ đưa các nhà du hành vũ trụ đổ bộ bề mặt Mặt Trăng. Giai đoạn này dự kiến bắt đầu vào năm 2025, kéo dài đến năm 2035.</p>
+
+                    <p><strong>Giai đoạn 3:</strong> Sau khi đưa tàu thăm dò có người lái và robot thám hiểm Mặt Trăng, Nga bắt tay xây dựng căn cứ vĩnh viễn trên Mặt Trăng vào năm 2040.</p>
+
+                    <p>Đây không phải là lần đầu tiên Nga nói về chương trình Mặt Trăng của mình. Năm 2017, Roscosmos đã bắt đầu tuyển dụng các phi hành gia cho các sứ mệnh Mặt Trăng kéo dài 2 thập kỷ của nước này.</p>
+                </div>
+
+                <div class="emag-title w660">
+                    <img src="images/subtitle-4-4.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Tính cho đến nay, Cơ quan thám hiểm Hàng không Vũ trụ Nhật Bản (JAXA) đã hai lần đến Mặt Trăng: Năm 1990, với tàu thăm dò Hiten và năm 2007, với tàu thăm dò quỹ đạo Mặt Trăng Kaguya.</p>
+
+                    <p>JAXA cũng đang lên kế hoạch thực hiện sứ mệnh SLIM. SLIM là một tàu đổ bộ Mặt Trăng thông minh, nó có nhiệm vụ thử nghiệm các công nghệ hạ cánh mới của Nhật. Dự kiến, tàu SLIM sẽ được ra mắt vào năm 2021.</p>
+
+                    <p>Ấn Độ là một trong những quốc gia châu Á dồn khá nhiều công sức cho công cuộc chinh phục Mặt Trăng.</p>
+
+                    <p>Tháng 10/2008, Tổ chức nghiên cứu vũ trụ Ấn Độ (ISRO) khởi động chương trình Mặt Trăng với sứ mệnh mang tên Chandrayaan-1, nhằm thu thập bằng chứng quan trọng về sự hiện diện của nước trên bề mặt Mặt Trăng.</p>
+
+                    <p>Tháng 7/2019, Ấn Độ triển khai Sứ mệnh Chandrayaan-2. Tuy nhiên, tàu đổ bộ Vikram gặp sự cố hồi tháng 9/2019 khiến sứ mệnh hạ cánh xuống vĩ độ cao nhất của Mặt Trăng thất bại. Dù Vikram thất bại, nhưng sứ mệnh của tàu vũ trụ Chandrayaan-2 vẫn chưa kết thúc. Chandrayaan-2 hiện vẫn di chuyển an toàn trong vùng quỹ đạo Mặt Trăng ở khoảng cách cách bề mặt vệ tinh này 100 km với nhiệm vụ khoa học kéo dài một năm tại đây.</p>
+
+                    <p>Cùng với sứ mệnh Mặt Trăng Chandrayaan-2, quốc gia châu Á này cũng tiết lộ kế hoạch đưa 3 phi hành gia vào không gian năm 2022.</p>
+
+                    <p>Viện nghiên cứu Hàng không Vũ trụ Hàn Quốc (KARI) đang chuẩn bị cho sứ mệnh Mặt Trăng đầu tiên của mình, mang tên KPLO vào năm 2020.</p>
+
+                    <p>Tàu quỹ đạo Mặt trăng Hàn Quốc (KPLO), được phát triển bởi Viện nghiên cứu hàng không vũ trụ Hàn Quốc (KARI), là một tàu vũ trụ nhỏ, nặng 550 kg. Quá trình chế tạo KPLO có sự hỗ trợ kỹ thuật từ NASA, đặc biệt là trong lĩnh vực viễn thông, điều hướng và thiết kế nhiệm vụ.</p>
+
+                    <p>Đây sẽ là tàu vũ trụ đầu tiên của Hàn Quốc vượt ra ngoài quỹ đạo Trái Đất. Giống như Ấn Độ và Trung Quốc, Hàn Quốc lên kế hoạch cho một loạt các sứ mệnh Mặt Trăng đầy tham vọng nhằm tăng cường dần khả năng trong không gian sâu.</p>
+
+                    <p>Còn rất nhiều quốc gia, tổ chức vũ trụ tư nhân khác trên thế giới cũng dồn sức cho cuộc chạy đua lên Mặt Trăng thế kỷ 21 này. Khi điều kiện công nghệ và kinh tế cho phép, việc chinh phục hoàn toàn Mặt Trăng - vệ tinh tự nhiên duy nhất và lớn nhất của Trái Đất - chỉ còn là vấn đề thời gian.</p>
+
+                    <p>Chúng ta hãy cùng chờ xem, ở thế kỷ này, loài người sẽ đạt được những thành tựu vũ trụ bùng nổ nào trong tương lai...</p>
+                </div>
+
+                <div class="emag-credit w660">
+                    <img src="images/credit-4.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-tab" data-content="5">
+            <div class="emag-cover">
+                <img src="images/cover-5.jpg" alt="">
+            </div>
+            
+            <div class="emag-content">
+                <div class="emag-sapo w660">
+                    <img src="images/sapo-5.png" alt="" class="wow fadeInUp" data-wow-duration="1s">
+                </div>
+
+                <div class="w660">
+                    <p>Ở thời thế kỷ 20, câu trả lời là vì tự hào dân tộc và khám phá khoa học; nhưng cũng cùng câu hỏi này, câu trả lời trong thời đại này (thế kỷ 21) đã có phần thay đổi, hay ít ra là trọng tâm của sứ mệnh đổ bộ Mặt Trăng đã chuyển hướng nhằm phục vụ cho những lợi ích, lợi nhuận nhất định.</p>
+
+                    <p>Cây viết Christian Davenport - chuyên gia về vũ trụ và quốc phòng của tờ Washington Post, nhận định sắc bén rằng: </p>
+
+                    <p>"Giống như cuộc đua vào vũ trụ thời Chiến tranh Lạnh giữa Mỹ và Liên Xô, đổ bộ Mặt Trăng không chỉ được thúc đẩy bởi niềm kiêu hãnh dân tộc, đó còn là những khám phá khoa học đỉnh cao mà hai cường quốc khát khao nắm trong tay. Tuy nhiên, không giống như thời đại của những phi thuyền Apollo, Kỷ nguyên Không gian thế kỷ 21 được thúc đẩy bởi một yếu tố thứ ba: Sự Tham lam."</p>
+                </div>
+
+                <div class="emag-image-left w660">
+                    <img src="images/img-5-1.jpg" alt="" class="w450">
+
+                    <p>Vì lẽ gì Christian Davenport lại nhận định như vậy? </p>
+
+                    <p>Khi nguồn khoáng sản trên Trái Đất đang dần cạn kiệt, các cường quốc nghĩ ngay đến việc lên kế hoạch khai thác khoáng sản quý, hiếm và đắt đỏ trên thiên thạch và tiểu hành tinh. Mặt Trăng - "mỏ trời" tuyệt vời của Trái Đất, "Vịnh Ba Tư của Thái Dương Hệ" đang là đích đến không thể chối cãi cho các quốc gia/tổ chức tư nhân theo đuổi con đường làm giàu từ không gian.</p>
+
+                    <p>Thứ nhất, không tự nhiên mà các nhà khoa học ví Mặt Trăng là "Vịnh Ba Tư của Thái Dương Hệ". Không chỉ chứa vàng, bạch kim cùng nhiều kim loại quý khác, Mặt Trăng còn được cho là vựa Helium-3 khổng lồ - nguồn nguyên liệu cực kỳ quý hiếm và đắt đỏ trên Trái Đất, được sử dụng cho các tên lửa đẩy hạt nhân trong tương lai.</p>
+                </div>
+
+                <div class="w660">
+                    <p>Thứ hai, Mặt Trăng chỉ mang 1/6 trọng lực của Trái Đất, do đó, so với việc cất cánh từ Trái Đất của chúng ta, một tên lửa đẩy không phải mất quá nhiều năng lượng để đưa một con tàu cất cánh từ Mặt Trăng ra ngoài không gian.</p>
+
+                    <p>Tựu chung 2 lý do này (vừa cung cấp nguồn nguyên liệu vũ trụ quý giá, đồng thời vừa là nơi cất cánh cho tàu vũ trụ dễ dàng hơn so với Trái Đất), Mặt Trăng đã nằm trong tầm ngắm chiến lược không gian tương lai của nhiều quốc gia khi họ biến nó trở thành "trạm không gian" để thực hiện các sứ mệnh khám phá vũ trụ sâu hơn.</p>
+                </div>
+
+                <div>
+                    <img src="images/img-5-2.jpg" alt="" style="margin-bottom: 10px;">
+                    <p class="emag-caption" style="padding: 0 30px;">Mặt Trăng, được ví là "Vịnh Ba Tư của Thái Dương Hệ", đang là đích đến không thể chối cãi cho các quốc gia/tổ chức tư nhân theo đuổi con đường làm giàu từ không gian. Ảnh: Internet</p>
+                </div>
+
+                <div class="w660">
+                    <p>Rõ ràng, "lục địa thứ 8 của Trái Đất" đang là mảnh đất vô cùng tiềm năng và béo bở để các cường quốc thể hiện năng lực công nghệ không gian hiện đại (có khả năng đổ bộ lên Mặt Trăng) cũng như là đích đến trong cuộc đua chiếm ưu thế giành "kho báu" trị giá hàng tỷ tỷ đô này. Chính thế, cuộc đua lên Mặt Trăng thế kỷ 21 do Trung Quốc "khai hỏa" đã khiến Mỹ, Nga, châu Âu và các quốc gia châu Á nóng lòng hơn bao giờ hết.</p>
+
+                    <p>Công bằng mà nói, dù là chinh phục Mặt Trăng với nhiều mục đích khác nhau nhưng điều này thể hiện sức mạnh công nghệ của loài người trong hành trình khám phá không gian thời đại 2.0, 3.0 và nhiều hơn thế nữa.</p>
+
+                    <p>Thành tựu vĩ đại ngoài sức tưởng tượng của Sứ mệnh Apollo 11 được dệt nên chỉ sau 66 năm kể từ chuyến bay đầu tiên của anh em nhà Wright chính là bước đệm khổng lồ, giúp củng cố niềm tin rằng loài người có thể tiến sâu hơn vào không gian, xa hơn nữa là mục tiêu trở thành loài người liên hành tinh. Vì một lẽ, Trái Đất có thể không còn đủ để mô tả chúng ta là ai!</p>
+
+                    <p>Nếu như Liên Xô và Mỹ hồi thế kỷ 20 có công mở ra kỷ nguyên khám phá vũ trụ cho loài người thì bước sang thế kỷ 21, cả nhân loại đang bước vào buổi bình minh của kỷ nguyên định cư ngoài không gian, tiến đến tương lai của loài người liên hành tinh - loài người sống ở những hành tinh khác.</p>
+
+                    <p>Nhìn lại chặng đường 50 năm kể từ ngày Mỹ lập chiến công vũ trụ hiển hách nhất mọi thời đại trên Mặt Trăng, Nhà báo Mỹ Walter Cronkite (1916-2009), người được công chúng tôn vinh là "Nhân vật đáng tin cậy nhất nước Mỹ" cảm nghĩ: "Dù 500 năm nữa có trôi qua, thì những người của thời tương lai đó vẫn công nhận cuộc đổ bộ Mặt Trăng năm 1969 của phi hành đoàn Apollo 11 (NASA) là chiến công hiển hách nhất mọi thời đại!"</p>
+                </div>
+
+                <div class="emag-credit w660">
+                    <img src="images/credit-5.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-tab" data-content="6">
+            <div class="emag-cover">
+                <img src="images//cover-6.jpg" alt="">
+
+                <a data-fancybox data-src="#z-apollo12" href="javascript:;" class="z-apollo z-apollo12">
+                    <img src="images/apollo-12.png" alt="">
+                </a>
+                <a data-fancybox data-src="#z-apollo14" href="javascript:;" class="z-apollo z-apollo14">
+                    <img src="images/apollo-14.png" alt="">
+                </a>
+                <a data-fancybox data-src="#z-apollo16" href="javascript:;" class="z-apollo z-apollo16">
+                    <img src="images/apollo-16.png" alt="">
+                </a>
+                <a data-fancybox data-src="#z-apollo15" href="javascript:;" class="z-apollo z-apollo15">
+                    <img src="images/apollo-15.png" alt="">
+                </a>
+                <a data-fancybox data-src="#z-apollo17" href="javascript:;" class="z-apollo z-apollo17">
+                    <img src="images/apollo-17.png" alt="">
+                </a>
+                <a data-fancybox data-src="#z-apollo11" href="javascript:;" class="z-apollo z-apollo11">
+                    <img src="images/apollo-11.png" alt="">
+                </a>
+            </div>
+
+            <p class="emag-caption" style="padding: 0 30px; margin-bottom: 10px;">"Độc giả bấm vào các điểm trên Mặt Trăng để xem thông tin"</p>
+
+            <div class="emag-content">
+                <div class="emag-title w660">
+                    <img src="images/title-6.png" alt="">
+                </div>
+
+                <div class="w660">
+                    <p>Chú thích:</p>
+
+                    <p>Tính cho đến nay, nhân loại mới thực hiện 6 cuộc đổ bộ có người lái lên Mặt Trăng. Cả 6 sứ mệnh này đều thuộc Chương trình Apollo của NASA (từ Apollo 11 của năm 1969 đến Apollo 17 của năm 1972).</p>
+
+                    <p>Tổng có 18 phi hành gia thực hiện sứ mệnh Apollo đổ bộ Mặt Trăng, trong đó 12 người đổ bộ trực tiếp Mặt Trăng (đều là phi hành gia NASA của Mỹ).</p>
+
+                    <p>Phi hành đoàn của mỗi một sứ mệnh Apollo có người lái đổ bộ thành công Mặt Trăng đều gồm 3 người là: Chỉ huy - Phi công mô-đun chỉ huy - Phi công mô-đun Mặt Trăng. Trong đó, chỉ có 2 phi hành gia trực tiếp đặt chân lên Mặt Trăng (là chỉ huy và phi công lái mô-đun Mặt Trăng), người còn lại thực hiện nhiệm vụ lái mô-đun chỉ huy tại quỹ đạo Mặt Trăng.</p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="z-apollo11">
+                <p class="emag-popup-title">APOLLO 11:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Thời gian thực hiện sứ mệnh: 16-24/7/1969</p>
+
+                    <p>Ngày đổ bộ Mặt Trăng: 20/7/1969</p>
+
+                    <p>Nhiệm vụ: Đưa người lần đầu tiên đổ bộ Mặt Trăng</p>
+
+                    <p>Phi hành đoàn: Chỉ huy Neil Armstrong, phi công mô-đun Mặt Trăng Buzz Aldrin, phi công mô-đun chỉ huy Michael Collins</p>
+
+                    <p>Điểm đổ bộ: Đồng bằng bazan Mare Tranquillitatis</p>
+
+                    <img src="images/img-6-4.jpg" alt="">
+
+                    <p>Chỉ huy <span class="uppercase">Neil Armstrong (1930-2012)</span></p>
+
+                    <img src="images/img-6-5.jpg" alt="">
+
+                    <p>Phi công mô-đun Mặt Trăng <span class="uppercase">Buzz Aldrin (Sinh ngày 20/1/1930)</span></p>
+
+                    <img src="images/img-6-6.jpg" alt="">
+
+                    <p>Phi công mô-đun chỉ huy <span class="uppercase">Michael Collins (Sinh ngày 31/10/1930)</span></p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="z-apollo12">
+                <p class="emag-popup-title">APOLLO 12:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Thời gian thực hiện sứ mệnh: 14-24/11/1969</p>
+
+                    <p>Ngày đổ bộ Mặt Trăng: 19/11/1969</p>
+
+                    <p>Nhiệm vụ: Đổ bộ Mặt Trăng lần 2</p>
+
+                    <p>Phi hành đoàn: Chỉ huy Pete Conrad, phi công mô-đun Mặt Trăng là Alan Bean, phi công mô-đun chỉ huy Richard F. Gordon Jr.</p>
+
+                    <p>Điểm đổ bộ: Lưu vực Mare Cognitum</p>
+
+                    <img src="images/img-6-1.jpg" alt="">
+
+                    <p>Chỉ huy <span class="uppercase">Pete Conrad (1930-1999)</span></p>
+
+                    <img src="images/img-6-2.jpg" alt="">
+
+                    <p>Phi công mô-đun Mặt Trăng <span class="uppercase">Alan Bean (1932-2018)</span></p>
+
+                    <img src="images/img-6-3.jpg" alt="">
+
+                    <p>Phi công mô-đun chỉ huy <span class="uppercase">Richard F. Gordon Jr. (1929-2017)</span></p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="z-apollo14">
+                <p class="emag-popup-title">APOLLO 14:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Thời gian thực hiện sứ mệnh: 31/1-9/2/1971</p>
+
+                    <p>Ngày đổ bộ Mặt Trăng: 5/2/1971</p>
+
+                    <p>Nhiệm vụ: Đổ bộ Mặt Trăng lần 3 (Apollo 13 gặp sự cố)</p>
+
+                    <p>Phi hành đoàn: Chỉ huy Alan Shepard, phi công mô-đun Mặt Trăng Edgar Mitchell, phi công mô-đun chỉ huy Stuart Roosa</p>
+
+                    <p>Điểm đổ bộ: Cao nguyên Fra Mauro</p>
+
+                    <img src="images/img-6-7.jpg" alt="">
+
+                    <p>Chỉ huy <span class="uppercase">Alan Shepard (1923-1998)</span></p>
+
+                    <img src="images/img-6-8.jpg" alt="">
+
+                    <p>Phi công mô-đun Mặt Trăng <span class="uppercase">Edgar Mitchell (1930-2016)</span></p>
+
+                    <img src="images/img-6-9.jpg" alt="">
+
+                    <p>Phi công mô-đun chỉ huy <span class="uppercase">Stuart Roosa (1933-1994)</span></p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="z-apollo15">
+                <p class="emag-popup-title">APOLLO 15:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Thời gian thực hiện sứ mệnh: 26/7-7/8/1971</p>
+
+                    <p>Ngày đổ bộ Mặt Trăng: 30/7/1971</p>
+
+                    <p>Nhiệm vụ: Đổ bộ Mặt Trăng lần 4. Lần đầu tiên thực hiện 'J Missions'</p>
+
+                    <p>Phi hành đoàn: Chỉ huy David Scott, phi công mô-đun Mặt Trăng James Irwin, phi công mô-đun chỉ huy Alfred M. Worden</p>
+
+                    <p>Điểm đổ bộ: Đồng bằng dung nham Hadley–Apennine</p>
+
+                    <img src="images/img-6-10.jpg" alt="">
+
+                    <p>Chỉ huy <span class="uppercase">David Scott (Sinh ngày 6/6/1932)</span></p>
+
+                    <img src="images/img-6-11.jpg" alt="">
+
+                    <p>Phi công mô-đun Mặt Trăng <span class="uppercase">James Irwin (1930-1991)</span></p>
+
+                    <img src="images/img-6-12.jpg" alt="">
+
+                    <p>Phi công mô-đun chỉ huy <span class="uppercase">Alfred M. Worden (Sinh ngày 7/2/1932)</span></p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="z-apollo16">
+                <p class="emag-popup-title">APOLLO 16:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Thời gian thực hiện sứ mệnh: 16-27/4/1972</p>
+
+                    <p>Ngày đổ bộ Mặt Trăng: 20/4/1972</p>
+
+                    <p>Nhiệm vụ: Đổ bộ Mặt Trăng lần 5</p>
+
+                    <p>Phi hành đoàn: Chỉ huy John Young, phi công mô-đun Mặt Trăng Charles Duke, phi công mô-đun chỉ huy Ken Mattingly</p>
+
+                    <p>Điểm đổ bộ: Cao nguyên Descartes</p>
+
+                    <img src="images/img-6-13.jpg" alt="">
+
+                    <p>Chỉ huy <span class="uppercase">John Young (1930-2018)</span></p>
+
+                    <img src="images/img-6-14.jpg" alt="">
+
+                    <p>Phi công mô-đun Mặt Trăng <span class="uppercase">Charles Duke (Sinh ngày 3/10/1935)</span></p>
+
+                    <img src="images/img-6-15.jpg" alt="">
+
+                    <p>Phi công mô-đun chỉ huy <span class="uppercase">Ken Mattingly (Sinh ngày 17/3/1936)</span></p>
+                </div>
+            </div>
+
+            <div class="emag-popup" id="z-apollo17">
+                <p class="emag-popup-title">APOLLO 17:</p>
+                
+                <div class="emag-popup-content">
+                    <p>Thời gian thực hiện sứ mệnh: 7-19/12/1972</p>
+
+                    <p>Ngày đổ bộ Mặt Trăng: 11/12/1972</p>
+
+                    <p>Nhiệm vụ: Đổ bộ Mặt Trăng lần 6. Sứ mệnh cuối cùng, hoàn thành Chương trình Apollo của NASA</p>
+
+                    <p>Phi hành đoàn: Chỉ huy Eugene Cernan, phi công mô-đun Mặt Trăng Harrison Schmitt, phi công mô-đun chỉ huy Ronald Evans</p>
+
+                    <p>Điểm đổ bộ: Thung lũng Taurus–Littrow</p>
+
+                    <img src="images/img-6-16.jpg" alt="">
+
+                    <p>Chỉ huy <span class="uppercase">Eugene Cernan (1934-2017)</span></p>
+
+                    <img src="images/img-6-17.jpg" alt="">
+
+                    <p>Phi công mô-đun Mặt Trăng <span class="uppercase">Harrison Schmitt (Sinh ngày 3/7/1935)</span></p>
+
+                    <img src="images/img-6-18.jpg" alt="">
+
+                    <p>Phi công mô-đun chỉ huy <span class="uppercase">Ronald Evans (1933-1990)</span></p>
+                </div>
             </div>
         </div>
     </div>
