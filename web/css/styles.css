@@ -326,6 +326,8 @@ img, video {
 
 .emag-tab[data-content="1"] {
     display: block;
+    background: url('../images/nensao.jpg') repeat-y center;
+    background-size: 100% auto;
 }
 .emag-tab[data-content="1"] .emag-cover {
     margin-bottom: 0;
@@ -341,8 +343,8 @@ img, video {
     padding-top: 60px;
 }
 .emag-tab[data-content="1"] .emag-content {
-    background: url('../images/nensao.jpg') repeat-y center;
-    background-size: 100% auto;
+    /* background: url('../images/nensao.jpg') repeat-y center;
+    background-size: 100% auto; */
     color: #fff;
 }
 .emag-tab[data-content="1"] a {
@@ -389,6 +391,10 @@ img, video {
     color: #959595;
 }
 
+.emag-tab[data-content="6"] {
+    background: url('../images/nensao-1.jpg') repeat-y center;
+    background-size: 100% auto;
+}
 .emag-tab[data-content="6"] .emag-cover {
     margin-top: 44px;
     margin-bottom: 10px;
@@ -397,6 +403,10 @@ img, video {
     color: #020418;
     font-style: italic;
     font-family: 'NotoSerif', serif;
+    color: #fff;
+}
+.emag-tab[data-content="6"] .emag-content {
+    color: #fff;
 }
 
 /* Popup */
