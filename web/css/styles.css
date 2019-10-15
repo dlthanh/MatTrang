@@ -338,7 +338,15 @@ img, video {
 }
 .emag-tab[data-content="1"] .emag-title {
     font-weight: bold;
-    margin-top: 60px;
+    padding-top: 60px;
+}
+.emag-tab[data-content="1"] .emag-content {
+    background: url('../images/nensao.jpg') repeat-y center;
+    background-size: 100% auto;
+    color: #fff;
+}
+.emag-tab[data-content="1"] a {
+    color: #f0f0f0;
 }
 
 .emag-tab[data-content="2"] {
