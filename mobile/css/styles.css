@@ -139,6 +139,9 @@ img, video {
     color: #fff;
     padding-bottom: 1px;
 }
+.emag-tab[data-content="1"] .emag-title {
+    font-weight: 700;
+}
 
 .emag-tab[data-content="2"] {
     background-color: #dbd6be;

@@ -336,6 +336,10 @@ img, video {
     font-style: italic;
     font-family: 'NotoSerif', serif;
 }
+.emag-tab[data-content="1"] .emag-title {
+    font-weight: bold;
+    margin-top: 60px;
+}
 
 .emag-tab[data-content="2"] {
     background-color: #dbd6be;
